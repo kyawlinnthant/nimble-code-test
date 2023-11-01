@@ -27,6 +27,7 @@
             <option value="$PROJECT_DIR$/build-logics" />
             <option value="$PROJECT_DIR$/build-logics/convention" />
             <option value="$PROJECT_DIR$/cores" />
+            <option value="$PROJECT_DIR$/cores/dispatchers" />
             <option value="$PROJECT_DIR$/cores/navigation" />
             <option value="$PROJECT_DIR$/cores/theme" />
             <option value="$PROJECT_DIR$/data" />

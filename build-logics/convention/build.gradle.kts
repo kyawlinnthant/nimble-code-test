@@ -35,5 +35,9 @@ gradlePlugin {
             id = "com.kyawlinnthant.hilt"
             implementationClass = "DaggerHiltPlugin"
         }
+        register("androidx.datastore") {
+            id = "com.kyawlinnthant.datastore.preferences"
+            implementationClass = "DatastorePlugin"
+        }
     }
 }

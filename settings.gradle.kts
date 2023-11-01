@@ -23,7 +23,7 @@ include(":data:database")
 include(":data:network")
 include(":cores:navigation")
 include(":cores:theme")
-
+include(":cores:dispatchers")
 include(":features:home:presentation")
 
 
