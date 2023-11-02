@@ -7,17 +7,6 @@ plugins {
 
 android {
     namespace = "com.kyawlinnthant.database"
-    buildFeatures {
-        buildConfig = true
-    }
-    defaultConfig{
-        buildConfigField(
-            type = "String",
-            name = "BASE_URL",
-            value = "\"https://survey-api.nimblehq.co/api/v1/\""
-        )
-
-    }
 }
 dependencies {
     api(project(":cores:dispatchers"))

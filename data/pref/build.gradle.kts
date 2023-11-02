@@ -14,13 +14,13 @@ android {
 dependencies {
     api(project(":cores:dispatchers"))
     api(project(":testrule"))
-    testImplementation(libs.google.hilt.test)
     androidTestImplementation(libs.google.hilt.test)
-    testImplementation(libs.test.unit.junit)
     androidTestImplementation(libs.test.android.runner)
     androidTestImplementation(libs.test.android.junit)
+    androidTestImplementation(libs.unit.truth)
+    testImplementation(libs.google.hilt.test)
+    testImplementation(libs.test.unit.junit)
     testImplementation(libs.test.android.junit)
     testImplementation(libs.unit.truth)
-    androidTestImplementation(libs.unit.truth)
 
 }

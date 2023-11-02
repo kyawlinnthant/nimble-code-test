@@ -30,6 +30,7 @@
             <option value="$PROJECT_DIR$/cores/dispatchers" />
             <option value="$PROJECT_DIR$/cores/navigation" />
             <option value="$PROJECT_DIR$/cores/theme" />
+            <option value="$PROJECT_DIR$/cores/util" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/data/database" />
             <option value="$PROJECT_DIR$/data/network" />
