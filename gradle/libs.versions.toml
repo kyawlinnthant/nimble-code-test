@@ -30,9 +30,12 @@ room = "2.6.0"
 test-unit-junit = "4.13.2"
 test-android-junit = "1.1.5"
 coroutines-test = "1.7.3"
-mockwebserver = "4.11.0"
+mockwebserver = "4.10.0"
 test-runner = "1.5.2"
 truth = "1.1.3"
+mockito = "4.8.1"
+
+
 
 # optimizor
 ktlint = "11.4.0"
@@ -87,12 +90,13 @@ test-unit-junit = { group = "junit", name = "junit", version.ref = "test-unit-ju
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-test" }
 mock-web-server = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "mockwebserver" }
 unit-truth = { group = "com.google.truth", name = "truth", version.ref = "truth"}
+unit-mockito = { group = "org.mockito", name = "mockito-core", version.ref = "mockito"}
+
 
 #android test
 test-android-junit = { group = "androidx.test.ext", name = "junit", version.ref = "test-android-junit" }
 test-android-compose-junit = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 test-android-runner = { group = "androidx.test", name = "runner", version.ref = "test-runner" }
-
 
 
 # gradle plugin

@@ -11,10 +11,8 @@ class NetworkPlugin : Plugin<Project> {
 
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
             val network = libs.findBundle("network").get()
-            val mock = libs.findLibrary("mock-web-server").get()
             dependencies {
                 add("api", network)
-                add("androidTestImplementation", mock)
             }
         }
     }
