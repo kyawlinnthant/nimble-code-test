@@ -26,15 +26,15 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class SurveysResponse(
-    val data: List<Surveys>
+    val data: List<SurveysData>
 )
 
 @Serializable
-data class Surveys(
+data class SurveysData(
     val id: String,
     val type: String,
-
-    )
+    val attributes: SurveyAttribute
+)
 
 @Serializable
 data class SurveyAttribute(
