@@ -7,7 +7,20 @@ plugins {
 
 android {
     namespace = "com.kyawlinnthant.pref"
+    defaultConfig {
+        testInstrumentationRunner = "com.kyawlinnthant.PrefTestRunner"
+    }
 }
 dependencies {
     api(project(":cores:dispatchers"))
+    api(project(":testrule"))
+    testImplementation(libs.google.hilt.test)
+    androidTestImplementation(libs.google.hilt.test)
+    testImplementation(libs.test.unit.junit)
+    androidTestImplementation(libs.test.android.runner)
+    androidTestImplementation(libs.test.android.junit)
+    testImplementation(libs.test.android.junit)
+    testImplementation(libs.unit.truth)
+    androidTestImplementation(libs.unit.truth)
+
 }

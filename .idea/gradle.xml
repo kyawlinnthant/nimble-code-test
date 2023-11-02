@@ -43,6 +43,7 @@
             <option value="$PROJECT_DIR$/features/home/data" />
             <option value="$PROJECT_DIR$/features/home/domain" />
             <option value="$PROJECT_DIR$/features/home/presentation" />
+            <option value="$PROJECT_DIR$/testrule" />
           </set>
         </option>
       </GradleProjectSettings>

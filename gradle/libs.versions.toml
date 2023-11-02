@@ -31,6 +31,8 @@ test-android-junit = "1.1.5"
 coroutines-test = "1.7.3"
 mockwebserver = "4.11.0"
 test-runner = "1.5.2"
+truth = "1.1.3"
+
 # optimizor
 ktlint = "11.4.0"
 ktlint-version = "0.49.1"
@@ -64,6 +66,8 @@ compose-test = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 # google
 google-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "google-hilt" }
 google-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "google-hilt" }
+google-hilt-test = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "google-hilt"}
+
 # network
 network-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 network-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
@@ -79,11 +83,14 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 test-unit-junit = { group = "junit", name = "junit", version.ref = "test-unit-junit" }
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-test" }
 mock-web-server = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "mockwebserver" }
+unit-truth = { group = "com.google.truth", name = "truth", version.ref = "truth"}
 
 #android test
 test-android-junit = { group = "androidx.test.ext", name = "junit", version.ref = "test-android-junit" }
 test-android-compose-junit = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 test-android-runner = { group = "androidx.test", name = "runner", version.ref = "test-runner" }
+
+
 
 # gradle plugin
 android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "gradle" }
