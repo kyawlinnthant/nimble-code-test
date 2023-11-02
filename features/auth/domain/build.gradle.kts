@@ -7,3 +7,7 @@ plugins {
 android {
     namespace = "com.kyawlinnthant.auth.domain"
 }
+dependencies {
+    api(project(":features:auth:data"))
+    implementation(project(":cores:util"))
+}
