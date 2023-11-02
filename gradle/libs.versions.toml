@@ -50,6 +50,8 @@ androidx-datastore = { group = "androidx.datastore", name = "datastore", version
 androidx-datastore-core = { group = "androidx.datastore", name = "datastore-core", version.ref = "androidx-datastore" }
 androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "androidx-datastore" }
 
+# serialization json
+serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version = "1.6.0"}
 
 # compose
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
@@ -137,3 +139,4 @@ google-hilt = { id = "com.google.dagger.hilt.android", version.ref = "google-hil
 android-application = { id = "com.android.application", version.ref = "gradle" }
 android-library = { id = "com.android.library", version.ref = "gradle" }
 android-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

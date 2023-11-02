@@ -2,8 +2,12 @@
 plugins {
     id("com.kyawlinnthant.android.library")
     id("com.kyawlinnthant.hilt")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
     namespace = "com.kyawlinnthant.auth.data"
+}
+dependencies {
+    api(project(":data:network"))
 }

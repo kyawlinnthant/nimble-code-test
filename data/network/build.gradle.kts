@@ -3,6 +3,7 @@ plugins {
     id("com.kyawlinnthant.android.library")
     id("com.kyawlinnthant.hilt")
     id("com.kyawlinnthant.network.retrofit")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -10,4 +11,6 @@ android {
 }
 dependencies {
     api(project(":cores:dispatchers"))
+    api(project(":data:pref"))
+    api(libs.serialization.json)
 }
