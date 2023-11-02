@@ -10,4 +10,5 @@ android {
 }
 dependencies {
     api(libs.compose.navigation)
+    api(libs.hilt.navigation)
 }

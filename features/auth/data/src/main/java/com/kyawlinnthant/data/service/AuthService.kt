@@ -9,7 +9,7 @@ import retrofit2.http.POST
 interface AuthService {
     companion object {
         private const val LOGIN = "oauth/token"
-        private const val FORGOT_PASSWORD = "password"
+        private const val FORGOT_PASSWORD = "passwords"
     }
     @POST
     suspend fun login(

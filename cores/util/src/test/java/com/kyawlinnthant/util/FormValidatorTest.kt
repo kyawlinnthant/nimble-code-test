@@ -55,7 +55,7 @@ class FormValidatorTest {
     }
 
     @Test
-    fun `password length larger than 6 returns false`() {
+    fun `password length larger than 24 returns false`() {
         val result = FormValidator.isVerifiedPassword(
             password = "123456789012345678901234567890"
         )

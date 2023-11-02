@@ -40,7 +40,7 @@ class LoginViewModel @Inject constructor(
 
     fun onAction(action: LoginAction) {
         when (action) {
-            LoginAction.Login ->
+            LoginAction.Login -> doValidate()
         }
     }
 

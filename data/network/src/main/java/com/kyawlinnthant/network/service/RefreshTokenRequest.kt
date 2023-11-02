@@ -13,7 +13,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class RefreshTokenRequest(
     @SerialName("grant_type")
-    val type: String = "password",
+    val type: String = "refresh_token",
     @SerialName("refresh_token")
     val refreshToken: String,
     @SerialName("client_id")

@@ -52,9 +52,11 @@ class PrefDataStoreTest {
         val accessToken = pref!!.pullAccessToken().first()
         val refreshToken = pref!!.pullRefreshToken().first()
         val tokenType = pref!!.pullTokenType().first()
+        val isAuthenticated = pref!!.pullIsAuthenticated().first()
         assertThat(accessToken).isEqualTo("")
         assertThat(refreshToken).isEqualTo("")
         assertThat(tokenType).isEqualTo("")
+        assertThat(isAuthenticated).isEqualTo(false)
     }
 
     @Test
@@ -80,4 +82,12 @@ class PrefDataStoreTest {
         val actual = pref!!.pullTokenType().first()
         assertThat(actual).isEqualTo(expected)
     }
+    @Test
+    fun put_and_pull_correctly_work_for_is_authenticated() = runTest {
+        val expected = false
+        pref!!.putIsAuthenticated(expected)
+        val actual = pref!!.pullIsAuthenticated().first()
+        assertThat(actual).isEqualTo(expected)
+    }
+
 }

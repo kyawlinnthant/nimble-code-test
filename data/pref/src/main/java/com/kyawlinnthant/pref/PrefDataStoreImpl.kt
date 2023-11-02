@@ -2,6 +2,7 @@ package com.kyawlinnthant.pref
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -26,6 +27,7 @@ class PrefDataStoreImpl @Inject constructor(
         val ACCESS_TOKEN = stringPreferencesKey("com.kyawlinnthant.access.token")
         val REFRESH_TOKEN = stringPreferencesKey("com.kyawlinnthant.refresh.token")
         val TOKEN_TYPE = stringPreferencesKey("com.kyawlinnthant.token.type")
+        val IS_AUTHENTICATED = booleanPreferencesKey("com.kyawlinnthant.authenticated")
     }
 
     override suspend fun putAccessToken(token: String) {
@@ -48,6 +50,14 @@ class PrefDataStoreImpl @Inject constructor(
         withContext(io) {
             ds.edit {
                 it[TOKEN_TYPE] = type
+            }
+        }
+    }
+
+    override suspend fun putIsAuthenticated(isLoggedIn: Boolean) {
+        withContext(io) {
+            ds.edit {
+                it[IS_AUTHENTICATED] = isLoggedIn
             }
         }
     }
@@ -81,6 +91,17 @@ class PrefDataStoreImpl @Inject constructor(
             }
             .map {
                 it[TOKEN_TYPE] ?: ""
+            }
+            .flowOn(io)
+    }
+
+    override suspend fun pullIsAuthenticated(): Flow<Boolean> {
+        return ds.data
+            .catch { e ->
+                if (e is IOException) emit(emptyPreferences()) else throw e
+            }
+            .map {
+                it[IS_AUTHENTICATED] ?: false
             }
             .flowOn(io)
     }

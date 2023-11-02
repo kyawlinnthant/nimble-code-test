@@ -5,6 +5,7 @@ desugaring = "2.0.3"
 # google
 google-ksp = "1.9.0-1.0.13"
 google-hilt = "2.48"
+hilt-navigation = "1.0.0"
 # androidx
 androidx-core = "1.12.0"
 androidx-lifecycle = "2.6.2"
@@ -69,7 +70,7 @@ compose-test = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 google-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "google-hilt" }
 google-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "google-hilt" }
 google-hilt-test = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "google-hilt"}
-
+hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation" }
 # network
 network-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 network-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }

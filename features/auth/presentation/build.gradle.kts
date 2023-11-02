@@ -10,5 +10,5 @@ android {
 }
 dependencies {
     api(project(":cores:navigation"))
-    implementation(project(":features:auth:domain"))
+    api(project(":features:auth:domain"))
 }

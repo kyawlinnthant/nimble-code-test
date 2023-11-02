@@ -1,6 +1,7 @@
 package com.kyawlinnthant.data.repository
 
 import com.kyawlinnthant.pref.PrefDataStore
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class AuthDsRepositoryImpl @Inject constructor(
@@ -16,5 +17,9 @@ class AuthDsRepositoryImpl @Inject constructor(
 
     override suspend fun putTokenType(type: String) {
         ds.putTokenType(type)
+    }
+
+    override suspend fun pullIsAuthenticated(): Flow<Boolean> {
+        return ds.pullIsAuthenticated()
     }
 }

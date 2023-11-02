@@ -12,7 +12,7 @@ interface HomeService {
 
     @POST(SURVEYS)
     suspend fun getSurveys(
-        @Query("pageNumber") pageNumber: Int,
-        @Query("pageSize") pageSize: Int,
+        @Query("page[number]") pageNumber: Int,
+        @Query("page[size]") pageSize: Int,
     ): Response<SurveysResponse>
 }
