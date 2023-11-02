@@ -39,5 +39,13 @@ gradlePlugin {
             id = "com.kyawlinnthant.datastore.preferences"
             implementationClass = "DatastorePlugin"
         }
+        register("androidx.database") {
+            id = "com.kyawlinnthant.database.room"
+            implementationClass = "DatabasePlugin"
+        }
+        register("network.retrofit") {
+            id = "com.kyawlinnthant.network.retrofit"
+            implementationClass = "NetworkPlugin"
+        }
     }
 }

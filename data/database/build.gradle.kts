@@ -1,9 +1,13 @@
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    id("java-library")
+    id("com.kyawlinnthant.android.library")
+    id("com.kyawlinnthant.hilt")
+    id("com.kyawlinnthant.database.room")
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+android {
+    namespace = "com.kyawlinnthant.database"
+}
+dependencies {
+    api(project(":cores:dispatchers"))
 }
