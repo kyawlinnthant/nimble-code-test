@@ -1,4 +1,4 @@
-package com.kyawlinnthant.data.model
+package com.kyawlinnthant.network.model
 
 import kotlinx.serialization.Serializable
 
@@ -12,7 +12,7 @@ import kotlinx.serialization.Serializable
 }*/
 @Serializable
 data class ErrorResponse(
-    val errors: ErrorData
+    val errors: List<ErrorData>
 )
 
 @Serializable

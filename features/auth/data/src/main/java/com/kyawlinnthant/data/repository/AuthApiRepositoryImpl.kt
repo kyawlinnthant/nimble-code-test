@@ -7,6 +7,7 @@ import com.kyawlinnthant.data.service.AuthService
 import com.kyawlinnthant.dispatchers.DispatcherModule
 import com.kyawlinnthant.network.util.DataResult
 import com.kyawlinnthant.network.util.safeApiCall
+import com.kyawlinnthant.util.AppConstant
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -20,8 +21,8 @@ class AuthApiRepositoryImpl @Inject constructor(
             type = "password",
             email = email,
             password = password,
-            clientId = "",
-            clientSecret = ""
+            clientId = AppConstant.CLIENT_ID,
+            clientSecret = AppConstant.CLIENT_SECRET
         )
         return withContext(io) {
             safeApiCall {

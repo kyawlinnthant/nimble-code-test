@@ -1,4 +1,4 @@
-package com.kyawlinnthant.network.service
+package com.kyawlinnthant.network.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

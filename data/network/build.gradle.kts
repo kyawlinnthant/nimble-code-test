@@ -22,5 +22,6 @@ android {
 dependencies {
     api(project(":cores:dispatchers"))
     api(project(":data:pref"))
+    api(project(":cores:util"))
     api(libs.serialization.json)
 }
