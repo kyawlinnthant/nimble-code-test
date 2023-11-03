@@ -7,7 +7,7 @@ android {
     namespace = "com.kyawlinnthant.util"
 }
 dependencies {
+    implementation(libs.androidx.core)
     testImplementation(libs.test.unit.junit)
     testImplementation(libs.unit.truth)
-    implementation(libs.androidx.core)
 }

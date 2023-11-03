@@ -7,7 +7,11 @@ plugins {
 
 android {
     namespace = "com.kyawlinnthant.database"
+    defaultConfig {
+        testInstrumentationRunner = "com.kyawlinnthant.DatabaseTestRunner"
+    }
 }
 dependencies {
     api(project(":cores:dispatchers"))
+    api(project(":testrule"))
 }

@@ -10,6 +10,7 @@ class ComposeLibraryPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         val androidLibrary = "com.android.library"
 
+
         with(target) {
             with(pluginManager) {
                 apply(androidLibrary)

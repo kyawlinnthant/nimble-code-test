@@ -10,7 +10,4 @@ android {
 }
 dependencies {
     api(project(":data:network"))
-    testImplementation(libs.unit.truth)
-    testImplementation(libs.mock.web.server)
-    testImplementation(libs.unit.mockito)
 }

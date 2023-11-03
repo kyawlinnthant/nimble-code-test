@@ -3,7 +3,6 @@ plugins {
     id("com.kyawlinnthant.android.library")
     id("com.kyawlinnthant.hilt")
     id("com.kyawlinnthant.network.retrofit")
-    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -23,9 +22,4 @@ dependencies {
     api(project(":cores:dispatchers"))
     api(project(":data:pref"))
     api(project(":cores:util"))
-    api(libs.serialization.json)
-    testImplementation(libs.test.unit.junit)
-    testImplementation(libs.unit.truth)
-    implementation(libs.androidx.core)
-    testImplementation(libs.mock.web.server)
 }

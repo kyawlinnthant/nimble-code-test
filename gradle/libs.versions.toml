@@ -92,12 +92,11 @@ mock-web-server = { group = "com.squareup.okhttp3", name = "mockwebserver", vers
 unit-truth = { group = "com.google.truth", name = "truth", version.ref = "truth"}
 unit-mockito = { group = "org.mockito", name = "mockito-core", version.ref = "mockito"}
 
-
 #android test
 test-android-junit = { group = "androidx.test.ext", name = "junit", version.ref = "test-android-junit" }
 test-android-compose-junit = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 test-android-runner = { group = "androidx.test", name = "runner", version.ref = "test-runner" }
-
+test-android-hilt = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "google-hilt" }
 
 # gradle plugin
 android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "gradle" }
@@ -136,6 +135,16 @@ network = [
 room = [
     "room-ktx",
     "room-runtime"
+]
+android-test = [
+    "unit-truth",
+    "test-android-junit",
+    "test-android-runner"
+]
+unit-test = [
+    "test-unit-junit",
+    "unit-truth",
+    "unit-mockito"
 ]
 
 [plugins]

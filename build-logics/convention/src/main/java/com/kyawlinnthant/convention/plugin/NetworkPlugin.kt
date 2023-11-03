@@ -11,8 +11,12 @@ class NetworkPlugin : Plugin<Project> {
 
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
             val network = libs.findBundle("network").get()
+            val mockWebServer = libs.findLibrary("mock-web-server").get()
+            val serialization = libs.findLibrary("serialization-json").get()
             dependencies {
+                add("api", serialization)
                 add("api", network)
+                add("testApi", mockWebServer)
             }
         }
     }
