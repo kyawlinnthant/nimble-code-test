@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kyawlinnthant.domain.usecase.Login
 import com.kyawlinnthant.domain.usecase.ValidateLogin
+import com.kyawlinnthant.navigation.Routes
+import com.kyawlinnthant.navigation.navigator.AppNavigator
 import com.kyawlinnthant.network.util.DataResult
 import com.kyawlinnthant.presentation.login.udf.LoginAction
 import com.kyawlinnthant.presentation.login.udf.LoginEvent
@@ -22,8 +24,9 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val login: Login,
-    private val validate : ValidateLogin
-) : ViewModel(){
+    private val validate: ValidateLogin,
+    private val appNavigator: AppNavigator
+) : ViewModel() {
 
     private val vmEvent = MutableSharedFlow<LoginEvent>()
     val uiEvent get() = vmEvent.asSharedFlow()
@@ -51,6 +54,7 @@ class LoginViewModel @Inject constructor(
             LoginAction.ForgotPassword -> {
                 // navigate to forgot password
             }
+
             is LoginAction.UpdateEmail -> {
                 vmState.update { state ->
                     state.copy(
@@ -60,6 +64,7 @@ class LoginViewModel @Inject constructor(
                     )
                 }
             }
+
             is LoginAction.UpdatePassword -> {
                 vmState.update { state ->
                     state.copy(
@@ -81,24 +86,28 @@ class LoginViewModel @Inject constructor(
                     )
                 }
             }.also {
-                if (!it.isErrorEmail && !it.isErrorPassword){
+                if (!it.isErrorEmail && !it.isErrorPassword) {
                     doLogin()
                 }
             }
         }
     }
+
     private fun doLogin() {
         viewModelScope.launch {
             when (val response = login(
                 form = vmState.value.form
             )) {
                 is DataResult.Failed -> {
-                    //show error
                     vmEvent.emit(LoginEvent.ShowSnack(response.message))
                 }
+
                 is DataResult.Success -> {
-                    // navigate to SurveysScreen
-                    vmEvent.emit(LoginEvent.ShowSnack("Success"))
+                    appNavigator.to(
+                        route = Routes.HOME,
+                        popupToRoute = Routes.AUTH,
+                        inclusive = true
+                    )
                 }
             }
 

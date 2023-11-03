@@ -1,5 +1,6 @@
 package com.kyawlinnthant.presentation.graph
 
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
@@ -10,6 +11,8 @@ import com.kyawlinnthant.navigation.Routes
 import com.kyawlinnthant.navigation.Screens
 import com.kyawlinnthant.presentation.login.LoginScreen
 import com.kyawlinnthant.presentation.login.LoginViewModel
+import com.kyawlinnthant.presentation.password.PasswordScreen
+import com.kyawlinnthant.presentation.password.PasswordViewModel
 
 fun NavGraphBuilder.authGraph(
     controller: NavHostController
@@ -29,8 +32,19 @@ fun NavGraphBuilder.authGraph(
                 uiEvent = vm.uiEvent
             )
         }
-        composable(route = Screens.ForgotPassword.route) {
-
+        composable(route = Screens.ForgotPassword.getAbsolutePath()) {
+            LaunchedEffect(key1 = true) {
+                val email = it.arguments?.getString(Screens.EMAIL)
+                controller.previousBackStackEntry?.savedStateHandle.apply {
+                    Screens.EMAIL to email
+                }
+            }
+            val vm: PasswordViewModel = hiltViewModel()
+            val email = vm.email.collectAsState()
+            PasswordScreen(
+                email = email.value,
+                onAction = vm::onAction
+            )
         }
     }
 }

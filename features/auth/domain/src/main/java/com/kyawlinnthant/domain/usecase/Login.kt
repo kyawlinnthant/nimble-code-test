@@ -22,9 +22,13 @@ class Login @Inject constructor(
         ) {
             is DataResult.Failed -> DataResult.Failed(message = response.message)
             is DataResult.Success -> {
-                ds.putAccessToken(token = response.data.data.attributes.accessToken)
-                ds.putRefreshToken(token = response.data.data.attributes.refreshToken)
-                ds.putTokenType(type = response.data.data.attributes.tokenType)
+                ds.apply {
+                    putIsAuthenticated(true)
+                    putAccessToken(token = response.data.data.attributes.accessToken)
+                    putRefreshToken(token = response.data.data.attributes.refreshToken)
+                    putTokenType(type = response.data.data.attributes.tokenType)
+                }
+
                 DataResult.Success(true)
             }
         }

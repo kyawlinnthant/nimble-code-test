@@ -30,6 +30,12 @@ class AuthDsRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun putIsAuthenticated(isLoggedIn: Boolean) {
+        withContext(io) {
+            ds.putIsAuthenticated(isLoggedIn)
+        }
+    }
+
     override suspend fun pullIsAuthenticated(): Flow<Boolean> {
         return ds.pullIsAuthenticated().flowOn(io)
     }

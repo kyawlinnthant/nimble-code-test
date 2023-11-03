@@ -8,5 +8,5 @@ android {
     namespace = "com.kyawlinnthant.home.domain"
 }
 dependencies {
-    implementation(project(":features:home:data"))
+    api(project(":features:home:data"))
 }

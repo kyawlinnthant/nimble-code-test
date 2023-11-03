@@ -1,6 +1,5 @@
 package com.kyawlinnthant.presentation.login
 
-import android.util.Log
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.navigationBars
@@ -29,7 +28,6 @@ fun LoginScreen(
         uiEvent.collect {
             when (it) {
                 is LoginEvent.ShowSnack -> {
-                    Log.d("here.message", it.message)
                     snackHost.showSnackbar(it.message)
                 }
             }

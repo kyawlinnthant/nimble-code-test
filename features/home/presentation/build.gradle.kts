@@ -10,5 +10,7 @@ android {
 }
 dependencies {
     api(project(":cores:navigation"))
-    implementation(project(":features:home:domain"))
+    api(project(":cores:theme"))
+    api(project(":features:home:domain"))
+    implementation(libs.compose.coil)
 }

@@ -41,9 +41,9 @@ data class SurveyAttribute(
     val title: String,
     val description: String,
     @SerialName("thank_email_above_threshold")
-    val aboveThreshold: String,
+    val aboveThreshold: String?,
     @SerialName("thank_email_below_threshold")
-    val belowThreshold: String,
+    val belowThreshold: String?,
     @SerialName("is_active")
     val isActive: Boolean,
     @SerialName("cover_image_url")

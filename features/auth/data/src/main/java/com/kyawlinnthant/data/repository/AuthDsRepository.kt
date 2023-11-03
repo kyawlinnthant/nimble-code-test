@@ -8,5 +8,6 @@ interface AuthDsRepository {
     suspend fun putRefreshToken(token: String)
     suspend fun putTokenType(type: String)
 
+    suspend fun putIsAuthenticated(isLoggedIn : Boolean)
     suspend fun pullIsAuthenticated() : Flow<Boolean>
 }

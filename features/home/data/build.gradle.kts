@@ -10,4 +10,5 @@ android {
 }
 dependencies {
     api(project(":data:network"))
+    api(project(":data:database"))
 }
