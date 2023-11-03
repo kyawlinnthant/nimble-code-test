@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.kyawlinnthant.domain.usecase.Login
 import com.kyawlinnthant.domain.usecase.ValidateLogin
 import com.kyawlinnthant.navigation.Routes
+import com.kyawlinnthant.navigation.Screens
 import com.kyawlinnthant.navigation.navigator.AppNavigator
 import com.kyawlinnthant.network.util.DataResult
 import com.kyawlinnthant.presentation.login.udf.LoginAction
@@ -52,7 +53,9 @@ class LoginViewModel @Inject constructor(
         when (action) {
             LoginAction.Login -> doValidate()
             LoginAction.ForgotPassword -> {
-                // navigate to forgot password
+                appNavigator.to(
+                    route = Screens.ForgotPassword.passEmail(vmState.value.form.email.ifEmpty { "You've typed empty email" })
+                )
             }
 
             is LoginAction.UpdateEmail -> {
@@ -60,6 +63,9 @@ class LoginViewModel @Inject constructor(
                     state.copy(
                         form = vmState.value.form.copy(
                             email = action.email
+                        ),
+                        error = vmState.value.error.copy(
+                            isErrorEmail = false
                         )
                     )
                 }
@@ -70,6 +76,9 @@ class LoginViewModel @Inject constructor(
                     state.copy(
                         form = vmState.value.form.copy(
                             password = action.password
+                        ),
+                        error = vmState.value.error.copy(
+                            isErrorPassword = false
                         )
                     )
                 }
