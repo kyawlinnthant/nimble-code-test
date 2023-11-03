@@ -1,11 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-include(":cores:util")
-
-
-include(":testrule")
-
-
 pluginManagement {
     repositories {
         includeBuild("build-logics")
@@ -29,20 +23,12 @@ include(":data:database")
 include(":data:network")
 include(":cores:navigation")
 include(":cores:theme")
+include(":cores:util")
 include(":cores:dispatchers")
 include(":features:home:presentation")
-
-
 include(":features:home:domain")
-
-
 include(":features:home:data")
-
-
 include(":features:auth:presentation")
-
-
 include(":features:auth:domain")
-
-
 include(":features:auth:data")
+include(":testrule")
