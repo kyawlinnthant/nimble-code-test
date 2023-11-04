@@ -3,19 +3,6 @@ package com.kyawlinnthant.network.model
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-/*{
-    "data": {
-    "id": 171,
-    "type": "token",
-    "attributes": {
-    "access_token": "6cmbWFycYr9GK5CZ5gRL0aFKZHkUADstNvty-jMqzrE",
-    "token_type": "Bearer",
-    "expires_in": 7200,
-    "refresh_token": "oiL7neqlake97_PEbdYYGX_jKP_R8yv1JdojAQCzWus",
-    "created_at": 1600940029
-}
-}
-}*/
 @Serializable
 data class RefreshTokenResponse(
     val data: RefreshTokenData
@@ -23,7 +10,7 @@ data class RefreshTokenResponse(
 
 @Serializable
 data class RefreshTokenData(
-    val id: Int,
+    val id: String,
     val type: String,
     val attributes: Attribute
 )

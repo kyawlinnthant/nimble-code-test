@@ -39,4 +39,16 @@ class AuthDsRepositoryImpl @Inject constructor(
     override suspend fun pullIsAuthenticated(): Flow<Boolean> {
         return ds.pullIsAuthenticated().flowOn(io)
     }
+
+    override suspend fun pullAccessToken(): Flow<String> {
+        return ds.pullAccessToken().flowOn(io)
+    }
+
+    override suspend fun pullRefreshToken(): Flow<String> {
+        return ds.pullRefreshToken().flowOn(io)
+    }
+
+    override suspend fun pullTokenType(): Flow<String> {
+        return ds.pullTokenType().flowOn(io)
+    }
 }

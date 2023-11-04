@@ -2,7 +2,6 @@
 plugins {
     id("com.kyawlinnthant.android.library")
     id("com.kyawlinnthant.hilt")
-    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -10,4 +9,5 @@ android {
 }
 dependencies {
     api(project(":data:network"))
+    testImplementation(libs.mock.web.server)
 }

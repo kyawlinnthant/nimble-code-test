@@ -26,6 +26,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import com.kyawlinnthant.theme.NimbleTheme
@@ -64,6 +65,7 @@ fun FirstTimeLoadingView(
     Column(
         modifier = modifier
             .fillMaxSize()
+            .testTag("first_time_loading")
             .padding(top = MaterialTheme.dimen.base3x, bottom = MaterialTheme.dimen.base3x)
     ) {
         Row(

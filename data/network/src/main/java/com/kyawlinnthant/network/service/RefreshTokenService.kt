@@ -8,7 +8,7 @@ import retrofit2.http.POST
 
 interface RefreshTokenService {
     companion object {
-        private const val REFRESH = "oauth/token"
+        const val REFRESH = "oauth/token"
     }
 
     @POST(REFRESH)

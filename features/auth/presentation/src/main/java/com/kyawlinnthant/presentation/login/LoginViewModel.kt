@@ -48,6 +48,13 @@ class LoginViewModel @Inject constructor(
             started = SharingStarted.Eagerly,
             initialValue = vmState.value.asError()
         )
+    val isLoading = vmState
+        .map(LoginViewModelState::asLoading)
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.Eagerly,
+            initialValue = vmState.value.asLoading()
+        )
 
     fun onAction(action: LoginAction) {
         when (action) {
@@ -103,15 +110,30 @@ class LoginViewModel @Inject constructor(
     }
 
     private fun doLogin() {
+        vmState.update { state ->
+            state.copy(
+                isLoading = true
+            )
+        }
         viewModelScope.launch {
             when (val response = login(
                 form = vmState.value.form
             )) {
                 is DataResult.Failed -> {
+                    vmState.update { state ->
+                        state.copy(
+                            isLoading = false
+                        )
+                    }
                     vmEvent.emit(LoginEvent.ShowSnack(response.message))
                 }
 
                 is DataResult.Success -> {
+                    vmState.update { state ->
+                        state.copy(
+                            isLoading = false
+                        )
+                    }
                     appNavigator.to(
                         route = Routes.HOME,
                         popupToRoute = Routes.AUTH,

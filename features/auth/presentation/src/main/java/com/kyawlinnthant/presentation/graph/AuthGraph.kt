@@ -25,11 +25,13 @@ fun NavGraphBuilder.authGraph(
             val vm: LoginViewModel = hiltViewModel()
             val form = vm.form.collectAsState()
             val error = vm.error.collectAsState()
+            val isLoading = vm.isLoading.collectAsState()
             LoginScreen(
                 form = form.value,
                 error = error.value,
                 onAction = vm::onAction,
-                uiEvent = vm.uiEvent
+                uiEvent = vm.uiEvent,
+                isLoading = isLoading.value
             )
         }
         composable(route = Screens.ForgotPassword.getAbsolutePath()) {

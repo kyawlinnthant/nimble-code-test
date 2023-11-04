@@ -8,7 +8,7 @@ import retrofit2.http.Query
 
 interface HomeService {
     companion object {
-        private const val SURVEYS = "surveys"
+        const val SURVEYS = "surveys"
     }
 
     @GET(SURVEYS)

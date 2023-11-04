@@ -24,6 +24,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import coil.compose.AsyncImage
 import com.kyawlinnthant.domain.vo.SurveysVo
@@ -71,6 +72,7 @@ fun HasDataView(
         Box(
             modifier = modifier
                 .fillMaxSize()
+                .testTag("has_data")
                 .padding(it),
             contentAlignment = Alignment.BottomStart
         ) {

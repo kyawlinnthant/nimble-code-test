@@ -50,7 +50,8 @@ class SurveysViewModel @Inject constructor(
                 is DataResult.Failed -> {
                     vmState.update { state ->
                         state.copy(
-                            error = data.message
+                            error = data.message,
+                            isLoading = false
                         )
                     }
                 }
@@ -90,9 +91,7 @@ class SurveysViewModel @Inject constructor(
                 )
             }
 
-            SurveysAction.Retry -> {
-
-            }
+            SurveysAction.Retry -> fetchSurveysFromServer()
         }
     }
 }

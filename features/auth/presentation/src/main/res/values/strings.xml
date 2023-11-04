@@ -7,5 +7,6 @@
     <string name="valid_password">Type valid password</string>
     <string name="forgot">Forgot?</string>
     <string name="login">Login</string>
+    <string name="logging">LoggingIn…</string>
     <string name="password_rule"><![CDATA[- at least one Upper letter\n- at least one Lower letter\n- at least one digit\n- at least one special character !@#$%^&+-\n- no space in password\n- at least 6 chars\n- not exceed 24 chars]]></string>
 </resources>
