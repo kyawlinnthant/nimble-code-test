@@ -16,7 +16,7 @@ fun MainScreen() {
     val isLoggedIn = vm.isLoggedIn.collectAsState()
     NavigationInstructor(
         instructor = vm.appNavigator.instructor,
-        controller = navHostController
+        controller = navHostController,
     )
     Scaffold(
         contentWindowInsets = WindowInsets(

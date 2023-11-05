@@ -25,9 +25,8 @@ fun NimbleGraph(
         modifier = modifier
             .fillMaxSize()
             .padding(paddingValues),
-        route = Routes.ROOT
+        route = Routes.ROOT,
     ) {
-
         authGraph(controller)
         homeGraph(controller)
     }

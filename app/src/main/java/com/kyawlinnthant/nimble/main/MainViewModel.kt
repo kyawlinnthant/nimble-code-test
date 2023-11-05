@@ -1,6 +1,5 @@
 package com.kyawlinnthant.nimble.main
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kyawlinnthant.domain.usecase.GetIsAuthenticated
@@ -14,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     val appNavigator: AppNavigator,
-    private val getIsAuthenticated: GetIsAuthenticated
+    private val getIsAuthenticated: GetIsAuthenticated,
 ) : ViewModel() {
 
     private val vmLoggedIn = MutableStateFlow<Boolean?>(null)
@@ -27,7 +26,6 @@ class MainViewModel @Inject constructor(
     private fun getAuthenticated() {
         viewModelScope.launch {
             getIsAuthenticated().collect {
-                Log.d("here.login", "$it")
                 vmLoggedIn.emit(it)
             }
         }
