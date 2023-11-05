@@ -69,6 +69,6 @@ User can navigate back to Surveys Screen.
 Run Continuous Integration with Github Actions (android_build.yml)
 - code_linting
   - run ktlintCheck
-- unit_tests
   - run detekt
+- unit_tests
   - run unit tests
