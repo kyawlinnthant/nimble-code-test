@@ -33,6 +33,8 @@ class AuthServiceTest {
         clientId = AppConstant.CLIENT_ID,
         clientSecret = AppConstant.CLIENT_SECRET
     )
+    private val expectedExpired = 7200
+    private val expectedCreated = 1698946679
 
     @Before
     fun setup() {
@@ -61,18 +63,18 @@ class AuthServiceTest {
         enqueueResponse("success_200.json")
         val response = service.login(loginBody)
         val request = mockWebServer.takeRequest()
-        //is correct request
+        // is correct request
         assertThat(request.method).isEqualTo("POST")
         assertThat(request.path).isEqualTo("/" + AuthService.LOGIN)
-        //is correct response
+        // is correct response
         assertThat(response.code()).isEqualTo(HttpURLConnection.HTTP_OK)
         assertThat(response.body()!!.data.id).isEqualTo("8743")
         assertThat(response.body()!!.data.type).isEqualTo("token")
         assertThat(response.body()!!.data.attributes.accessToken).isEqualTo("AKo5_Sjw_wsoRfFky2eMk2wgKd2VSFI0trspWTwroXI")
         assertThat(response.body()!!.data.attributes.tokenType).isEqualTo("Bearer")
-        assertThat(response.body()!!.data.attributes.expired).isEqualTo(7200)
+        assertThat(response.body()!!.data.attributes.expired).isEqualTo(expectedExpired)
         assertThat(response.body()!!.data.attributes.refreshToken).isEqualTo("MVrPA5u-tjEUykYx6rxEWMLrn6yj9pZAWMU94C3nakk")
-        assertThat(response.body()!!.data.attributes.created).isEqualTo(1698946679)
+        assertThat(response.body()!!.data.attributes.created).isEqualTo(expectedCreated)
     }
 
     @Test

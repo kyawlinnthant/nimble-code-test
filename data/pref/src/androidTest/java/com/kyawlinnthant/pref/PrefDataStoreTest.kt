@@ -16,7 +16,6 @@ import org.junit.Rule
 import org.junit.Test
 import javax.inject.Inject
 
-
 @HiltAndroidTest
 @SmallTest
 @UninstallModules(PrefModule::class)
@@ -82,6 +81,7 @@ class PrefDataStoreTest {
         val actual = pref!!.pullTokenType().first()
         assertThat(actual).isEqualTo(expected)
     }
+
     @Test
     fun put_and_pull_correctly_work_for_is_authenticated() = runTest {
         val expected = false
@@ -89,5 +89,4 @@ class PrefDataStoreTest {
         val actual = pref!!.pullIsAuthenticated().first()
         assertThat(actual).isEqualTo(expected)
     }
-
 }

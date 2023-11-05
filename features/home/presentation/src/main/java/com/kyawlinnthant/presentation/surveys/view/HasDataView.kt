@@ -45,7 +45,7 @@ fun HasDataView(
             left = 0,
             top = 0,
             right = 0,
-            bottom = 0,
+            bottom = 0
         ),
         floatingActionButton = {
             FloatingActionButton(
@@ -68,7 +68,6 @@ fun HasDataView(
             }
         }
     ) {
-
         Box(
             modifier = modifier
                 .fillMaxSize()
@@ -98,7 +97,6 @@ fun HasDataView(
         }
     }
 }
-
 
 @Composable
 fun SurveyView(
@@ -136,7 +134,6 @@ fun SurveyView(
                 Column {
                     Text(text = survey.id)
                 }
-
             }
             Column(
                 modifier = modifier
@@ -151,7 +148,5 @@ fun SurveyView(
                 Text(text = survey.description, style = MaterialTheme.typography.labelLarge)
             }
         }
-
     }
-
 }

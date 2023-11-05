@@ -10,7 +10,7 @@ android {
     buildFeatures {
         buildConfig = true
     }
-    defaultConfig{
+    defaultConfig {
         buildConfigField(
             type = "String",
             name = "BASE_URL",

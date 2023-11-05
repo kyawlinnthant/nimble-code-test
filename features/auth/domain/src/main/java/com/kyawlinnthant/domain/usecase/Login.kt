@@ -16,7 +16,7 @@ class Login @Inject constructor(
         return when (
             val response = api.login(
                 email = form.email.trim(),
-                password = form.password.trim(),
+                password = form.password.trim()
 
             )
         ) {

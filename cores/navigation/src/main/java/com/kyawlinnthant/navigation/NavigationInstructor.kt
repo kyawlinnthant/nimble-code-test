@@ -1,6 +1,5 @@
 package com.kyawlinnthant.navigation
 
-
 import android.app.Activity
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect

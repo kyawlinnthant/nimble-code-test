@@ -18,7 +18,7 @@ fun SurveysContent(
     modifier: Modifier = Modifier,
     uiState: SurveysUiState,
     paddingValues: PaddingValues,
-    onAction: (SurveysAction) -> Unit,
+    onAction: (SurveysAction) -> Unit
 ) {
     Box(
         modifier = modifier

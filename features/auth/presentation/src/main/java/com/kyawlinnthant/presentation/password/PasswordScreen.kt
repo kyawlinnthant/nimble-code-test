@@ -25,7 +25,7 @@ import com.kyawlinnthant.presentation.password.udf.PasswordAction
 @Composable
 fun PasswordScreen(
     email: String,
-    onAction: (PasswordAction) -> Unit,
+    onAction: (PasswordAction) -> Unit
 ) {
     val snackHost = remember { SnackbarHostState() }
     Scaffold(

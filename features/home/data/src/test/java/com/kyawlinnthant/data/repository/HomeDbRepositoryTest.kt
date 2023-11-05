@@ -47,7 +47,6 @@ class HomeDbRepositoryTest {
 
     @Test
     fun `save surveys successfully save in database`() = runTest {
-
         Mockito.`when`(dao.insertSurveys(mockResponse)).thenReturn(Unit)
         Mockito.`when`(dao.readSurveys()).thenReturn(flowOf(mockResponse))
 

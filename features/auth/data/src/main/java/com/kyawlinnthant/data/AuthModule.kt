@@ -15,6 +15,6 @@ object AuthModule {
     @Provides
     @Singleton
     fun provideAuthApiService(
-        @NetworkModule.AuthRetrofit retrofit : Retrofit
+        @NetworkModule.AuthRetrofit retrofit: Retrofit
     ): AuthService = retrofit.create(AuthService::class.java)
 }

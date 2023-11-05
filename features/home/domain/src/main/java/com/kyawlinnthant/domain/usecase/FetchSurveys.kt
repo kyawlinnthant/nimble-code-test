@@ -9,15 +9,17 @@ import javax.inject.Inject
 
 class FetchSurveys @Inject constructor(
     private val api: HomeApiRepository,
-    private val dao: HomeDbRepository,
+    private val dao: HomeDbRepository
 ) {
     private val defaultPageNumber = 1
     private val defaultPageSize = 10
     suspend operator fun invoke(): DataResult<Boolean> {
-        return when (val response = api.getSurveys(
-            pageNumber = defaultPageNumber,
-            pageSize = defaultPageSize
-        )) {
+        return when (
+            val response = api.getSurveys(
+                pageNumber = defaultPageNumber,
+                pageSize = defaultPageSize
+            )
+        ) {
             is DataResult.Failed -> DataResult.Failed(message = response.message)
             is DataResult.Success -> {
                 val dto = response.data.data

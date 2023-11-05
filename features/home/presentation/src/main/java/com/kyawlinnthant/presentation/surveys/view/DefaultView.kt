@@ -13,7 +13,7 @@ import com.kyawlinnthant.theme.NimbleTheme
 
 @Composable
 fun DefaultView(
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     Box(
         modifier = modifier

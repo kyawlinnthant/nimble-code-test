@@ -1,6 +1,5 @@
 package com.kyawlinnthant.data.repository
 
-
 import com.google.common.truth.Truth.assertThat
 import com.kyawlinnthant.data.model.SurveyAttribute
 import com.kyawlinnthant.data.model.SurveysData
@@ -43,6 +42,7 @@ class HomeApiRepositoryTest {
             )
         )
     )
+    private val errorCode400 = 400
 
     @get:Rule
     val testRule = CoroutinesTestRule()
@@ -64,17 +64,16 @@ class HomeApiRepositoryTest {
 
     @Test
     fun `get surveys successfully transform data`() = runTest {
-
-        //assume with mock
+        // assume with mock
         `when`(
             service.getSurveys(
                 pageNumber = 1,
-                pageSize = 1,
+                pageSize = 1
             )
         ).thenReturn(Response.success(mockResponse))
         val actual = repository!!.getSurveys(
             pageNumber = 1,
-            pageSize = 1,
+            pageSize = 1
         )
         assertThat(actual as DataResult.Success).isEqualTo(DataResult.Success(mockResponse))
     }
@@ -84,17 +83,17 @@ class HomeApiRepositoryTest {
         `when`(
             service.getSurveys(
                 pageNumber = 1,
-                pageSize = 1,
+                pageSize = 1
             )
         ).thenReturn(
             Response.error(
-                400,
+                errorCode400,
                 "error response".toResponseBody("txt".toMediaTypeOrNull())
             )
         )
         val actual = repository!!.getSurveys(
             pageNumber = 1,
-            pageSize = 1,
+            pageSize = 1
         )
         assertThat(actual).isEqualTo(DataResult.Failed("ErrorResponse is null"))
     }

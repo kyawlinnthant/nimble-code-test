@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -35,7 +34,7 @@ fun LoginScreen(
     error: LoginError,
     onAction: (LoginAction) -> Unit,
     uiEvent: SharedFlow<LoginEvent>,
-    isLoading: Boolean,
+    isLoading: Boolean
 ) {
     val snackHost = remember { SnackbarHostState() }
 
@@ -58,7 +57,6 @@ fun LoginScreen(
                     .padding(MaterialTheme.dimen.base3x),
                 contentAlignment = Alignment.Center
             ) {
-
                 Text(text = stringResource(id = R.string.logging))
             }
         }
@@ -70,7 +68,7 @@ fun LoginScreen(
         ),
         snackbarHost = {
             SnackbarHost(hostState = snackHost)
-        },
+        }
     ) {
         LoginContent(
             paddingValues = it,
@@ -78,6 +76,5 @@ fun LoginScreen(
             error = error,
             onAction = onAction
         )
-
     }
 }

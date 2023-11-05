@@ -50,14 +50,13 @@ fun LoginContent(
                 brush = Brush.verticalGradient(
                     colors = listOf(
                         MaterialTheme.colorScheme.surfaceVariant,
-                        MaterialTheme.colorScheme.surface,
+                        MaterialTheme.colorScheme.surface
                     )
                 )
             ),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         LoginTextField(
             placeholder = stringResource(id = R.string.email),
             value = form.email,

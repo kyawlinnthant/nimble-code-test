@@ -3,7 +3,6 @@ package com.kyawlinnthant.data.model
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /*
 kyawlinnthantkyawlinnthant@gmail.com
 Apple!123
@@ -59,14 +58,14 @@ Apple!123
 */
 @Serializable
 data class LoginResponse(
-    val data : LoginData
+    val data: LoginData
 )
 
 @Serializable
 data class LoginData(
-    val id : String,
-    val type : String,
-    val attributes : LoginAttribute
+    val id: String,
+    val type: String,
+    val attributes: LoginAttribute
 )
 
 @Serializable
@@ -80,6 +79,5 @@ data class LoginAttribute(
     @SerialName("expires_in")
     val expired: Int,
     @SerialName("created_at")
-    val created : Long
+    val created: Long
 )
-

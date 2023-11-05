@@ -1,6 +1,5 @@
 package com.kyawlinnthant.database.dao
 
-
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth.assertThat
@@ -8,7 +7,6 @@ import com.kyawlinnthant.database.db.SurveyDatabase
 import com.kyawlinnthant.database.entity.SurveyEntity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -60,7 +58,6 @@ class SurveyDaoTest {
         assertThat(actual.first().description).isEqualTo(dummy.description)
     }
 
-
     @Test
     fun successfully_insert_list_of_surveys() = runTest {
         val dummy = listOf(
@@ -84,7 +81,6 @@ class SurveyDaoTest {
             )
         )
 
-
         dao.insertSurveys(dummy)
         val actual = dao.readSurveys().first()
         assertThat(actual.size).isEqualTo(dummy.size)
@@ -92,7 +88,7 @@ class SurveyDaoTest {
 
     @Test
     fun insert_again_with_same_primary_key_should_be_replaced() = runTest {
-        //first time insertion
+        // first time insertion
         val dummy1 = SurveyEntity(
             id = "id1",
             name = "name1",
@@ -101,7 +97,7 @@ class SurveyDaoTest {
         )
         dao.insertSurvey(dummy1)
 
-        //second time insertion with same id
+        // second time insertion with same id
         val dummy2 = SurveyEntity(
             id = "id1",
             name = "name1",
@@ -123,5 +119,4 @@ class SurveyDaoTest {
         val result = dao.readSurveys().first()
         assertThat(result).isEmpty()
     }
-
 }

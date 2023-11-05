@@ -22,12 +22,11 @@ import com.kyawlinnthant.home.presentation.R
 import com.kyawlinnthant.theme.NimbleTheme
 import com.kyawlinnthant.theme.dimen
 
-
 @Composable
 fun FirstTimeErrorView(
     modifier: Modifier = Modifier,
     onRetry: () -> Unit,
-    error: String,
+    error: String
 ) {
     Column(
         modifier = modifier.fillMaxSize().testTag("first_time_error"),

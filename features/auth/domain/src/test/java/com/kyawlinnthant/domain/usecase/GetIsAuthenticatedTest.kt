@@ -21,7 +21,6 @@ class GetIsAuthenticatedTest {
 
     @Test
     fun `get isAuthenticated flag successfully done`() = runTest {
-
         val ds = FakeAuthDsRepository()
         val getFlag = GetIsAuthenticated(
             ds = ds

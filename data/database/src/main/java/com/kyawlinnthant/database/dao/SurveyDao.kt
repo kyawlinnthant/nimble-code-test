@@ -23,5 +23,5 @@ interface SurveyDao {
     suspend fun deleteAll()
 
     @Query("SELECT * FROM ${SurveyEntity.TABLE_NAME}")
-    fun readSurveys() : Flow<List<SurveyEntity>>
+    fun readSurveys(): Flow<List<SurveyEntity>>
 }

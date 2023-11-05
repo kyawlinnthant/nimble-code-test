@@ -16,10 +16,10 @@ data class ForgotPasswordRequest(
     @SerialName("client_id")
     val clientId: String,
     @SerialName("client_secret")
-    val clientSecret : String
+    val clientSecret: String
 )
 
 @Serializable
 data class User(
-    val email : String
+    val email: String
 )

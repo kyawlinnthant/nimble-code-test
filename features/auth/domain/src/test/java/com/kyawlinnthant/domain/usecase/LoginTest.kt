@@ -49,6 +49,5 @@ class LoginTest {
         Truth.assertThat(savedTokenType)
             .isEqualTo(FakeAuthApiRepository.mockLoginResponse.data.attributes.tokenType)
         Truth.assertThat(expected).isEqualTo(DataResult.Success(true))
-
     }
 }

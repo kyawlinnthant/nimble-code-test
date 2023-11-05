@@ -18,8 +18,8 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideDatabase(
-        @ApplicationContext context : Context
-    ) : SurveyDatabase = Room.databaseBuilder(
+        @ApplicationContext context: Context
+    ): SurveyDatabase = Room.databaseBuilder(
         context,
         SurveyDatabase::class.java,
         SurveyDatabase.DB_NAME
@@ -30,6 +30,6 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideDao(
-        db : SurveyDatabase
-    ) : SurveyDao = db.dao()
+        db: SurveyDatabase
+    ): SurveyDao = db.dao()
 }

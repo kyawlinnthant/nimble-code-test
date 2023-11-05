@@ -1,6 +1,5 @@
 package com.kyawlinnthant.theme
 
-
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -14,7 +13,7 @@ val fonts = FontFamily(
     Font(R.font.google_sans_regular, weight = FontWeight.Normal),
     Font(R.font.google_sans_italic, weight = FontWeight.Thin),
     Font(R.font.google_sans_bold_italic, weight = FontWeight.Bold),
-    Font(R.font.google_sans_medium_italic, weight = FontWeight.Medium),
+    Font(R.font.google_sans_medium_italic, weight = FontWeight.Medium)
 )
 
 val NimbleTypo = Typography(

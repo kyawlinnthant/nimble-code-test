@@ -47,7 +47,7 @@ class TokenAuthenticator @Inject constructor(
             }
         ) {
             is DataResult.Failed -> {
-                //todo : additional logic to prompt the error
+                // todo : additional logic to prompt the error
             }
 
             is DataResult.Success -> {
@@ -59,6 +59,5 @@ class TokenAuthenticator @Inject constructor(
             }
         }
         return accessToken
-
     }
 }

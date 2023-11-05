@@ -22,7 +22,6 @@ class FetchSurveysTest {
 
     @Test
     fun `fetch successfully and save in db`() = runTest {
-
         val api = FakeHomeApiRepository()
         val dao = FakeHomeDbRepository()
         val fetchSurveys = FetchSurveys(

@@ -23,7 +23,7 @@ object TestDsModule {
     @Singleton
     fun provideTestPref(
         @ApplicationContext context: Context
-    ) : DataStore<Preferences>{
+    ): DataStore<Preferences> {
         return PreferenceDataStoreFactory.create(
             produceFile = {
                 context.preferencesDataStoreFile("${PrefDataStoreImpl.PREF_NAME}${Random.nextInt()}")

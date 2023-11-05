@@ -11,11 +11,11 @@ import com.kyawlinnthant.database.entity.SurveyEntity.Companion.TABLE_NAME
 data class SurveyEntity(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = PRIMARY_ID)
-    val id : String,
-    val name : String,
-    val description : String,
-    val image : String
-){
+    val id: String,
+    val name: String,
+    val description: String,
+    val image: String
+) {
     companion object {
         const val TABLE_NAME = "survey_table"
         const val PRIMARY_ID = "survey_id"

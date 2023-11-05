@@ -116,9 +116,11 @@ class LoginViewModel @Inject constructor(
             )
         }
         viewModelScope.launch {
-            when (val response = login(
-                form = vmState.value.form
-            )) {
+            when (
+                val response = login(
+                    form = vmState.value.form
+                )
+            ) {
                 is DataResult.Failed -> {
                     vmState.update { state ->
                         state.copy(
@@ -141,7 +143,6 @@ class LoginViewModel @Inject constructor(
                     )
                 }
             }
-
         }
     }
 }

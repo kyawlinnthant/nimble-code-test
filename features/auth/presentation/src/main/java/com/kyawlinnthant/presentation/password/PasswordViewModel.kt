@@ -18,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PasswordViewModel @Inject constructor(
     private val appNavigator: AppNavigator,
-    private val savedStateHandle: SavedStateHandle,
+    private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     private val vmState = MutableStateFlow(PasswordViewModelState())

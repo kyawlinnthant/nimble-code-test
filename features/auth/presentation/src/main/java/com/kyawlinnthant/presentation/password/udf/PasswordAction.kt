@@ -1,5 +1,5 @@
 package com.kyawlinnthant.presentation.password.udf
 
-sealed interface PasswordAction{
+sealed interface PasswordAction {
     data object Back : PasswordAction
 }

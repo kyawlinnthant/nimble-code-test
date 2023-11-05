@@ -1,6 +1,5 @@
 package com.kyawlinnthant.theme
 
-
 import androidx.compose.ui.graphics.Color
 
 val md_theme_light_primary = Color(0xFF006874)
@@ -64,6 +63,5 @@ val md_theme_dark_shadow = Color(0xFF000000)
 val md_theme_dark_surfaceTint = Color(0xFF4FD8EC)
 val md_theme_dark_outlineVariant = Color(0xFF3F484A)
 val md_theme_dark_scrim = Color(0xFF000000)
-
 
 val seed = Color(0xFF006975)

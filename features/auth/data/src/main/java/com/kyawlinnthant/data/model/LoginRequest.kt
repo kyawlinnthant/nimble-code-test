@@ -23,4 +23,3 @@ data class LoginRequest(
     @SerialName("client_secret")
     val clientSecret: String
 )
-

@@ -16,7 +16,6 @@ class AuthDsRepositoryTest {
     private lateinit var pref: PrefDataStore
     private var repository: AuthDsRepositoryImpl? = null
 
-
     @get:Rule
     val testRule = CoroutinesTestRule()
 

@@ -41,10 +41,11 @@ class AuthApiRepositoryTest {
                 refreshToken = "refreshToken",
                 tokenType = "tokenType",
                 expired = 1000,
-                created = 1000L,
+                created = 1000L
             )
         )
     )
+    private val error400Code = 400
 
     @get:Rule
     val testRule = CoroutinesTestRule()
@@ -66,8 +67,7 @@ class AuthApiRepositoryTest {
 
     @Test
     fun `login successfully transform data`() = runTest {
-
-        //assume with mock
+        // assume with mock
         `when`(service.login(loginBody)).thenReturn(Response.success(mockLoginResponse))
         val actual = repository!!.login(
             email = "kyawlinnthantkyawlinnthant@gmail.com",
@@ -80,7 +80,7 @@ class AuthApiRepositoryTest {
     fun `login got error and transform result error`() = runTest {
         `when`(service.login(loginBody)).thenReturn(
             Response.error(
-                400,
+                error400Code,
                 "error response".toResponseBody("txt".toMediaTypeOrNull())
             )
         )

@@ -25,6 +25,7 @@ class HomeServiceTest {
     }
     private val factory = json.asConverterFactory("application/json".toMediaType())
 
+    private val requestPageNumber = 5
 
     @Before
     fun setup() {
@@ -53,15 +54,15 @@ class HomeServiceTest {
         enqueueResponse("success_200.json")
         val response = service.getSurveys(
             pageSize = 1,
-            pageNumber = 5,
+            pageNumber = requestPageNumber
         )
         val request = mockWebServer.takeRequest()
-        //is correct request
+        // is correct request
         assertThat(request.method).isEqualTo("GET")
-        assertThat(request.path).isEqualTo("/" + HomeService.SURVEYS+ "?page%5Bnumber%5D=5&page%5Bsize%5D=1")
-        //is correct response
+        assertThat(request.path).isEqualTo("/" + HomeService.SURVEYS + "?page%5Bnumber%5D=5&page%5Bsize%5D=1")
+        // is correct response
         assertThat(response.code()).isEqualTo(HttpURLConnection.HTTP_OK)
-        assertThat(response.body()!!.data.size).isEqualTo(5)
+        assertThat(response.body()!!.data.size).isEqualTo(requestPageNumber)
     }
 
     @Test
@@ -70,7 +71,7 @@ class HomeServiceTest {
         mockWebServer.enqueue(expectedResponse)
         val actual = service.getSurveys(
             pageSize = 1,
-            pageNumber = 5,
+            pageNumber = 5
         )
         assertThat(actual.code()).isEqualTo(HttpURLConnection.HTTP_NOT_FOUND)
     }
@@ -80,7 +81,7 @@ class HomeServiceTest {
         enqueueResponse("malformed.json")
         service.getSurveys(
             pageSize = 1,
-            pageNumber = 5,
+            pageNumber = 5
         )
     }
 }

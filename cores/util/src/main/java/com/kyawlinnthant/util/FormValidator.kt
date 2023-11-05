@@ -38,5 +38,4 @@ object FormValidator {
         }
         return true
     }
-
 }

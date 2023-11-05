@@ -22,7 +22,7 @@ import javax.inject.Inject
 class SurveysViewModel @Inject constructor(
     private val appNavigator: AppNavigator,
     private val getSurveys: GetSurveys,
-    private val fetchSurveys: FetchSurveys,
+    private val fetchSurveys: FetchSurveys
 ) : ViewModel() {
 
     private val vmState = MutableStateFlow(SurveysViewModelState())

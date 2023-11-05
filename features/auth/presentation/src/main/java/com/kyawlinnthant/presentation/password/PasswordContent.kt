@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 fun PasswordContent(
     paddingValues: PaddingValues,
     modifier: Modifier = Modifier,
-    email: String,
+    email: String
 ) {
     Box(
         modifier = modifier

@@ -33,6 +33,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import com.kyawlinnthant.auth.presentation.R
 import com.kyawlinnthant.theme.dimen
+import com.kyawlinnthant.util.AppConstant
 
 @Composable
 fun LoginTextField(
@@ -128,7 +129,6 @@ fun LoginTextField(
     }
 }
 
-
 @Composable
 fun VisibilityAnimator(
     modifier: Modifier = Modifier,
@@ -136,13 +136,12 @@ fun VisibilityAnimator(
     errorMessage: String,
     hasInfo: Boolean? = false
 ) {
-    val defaultMilli = 500
     AnimatedVisibility(
         visible = isVisible,
-        enter = fadeIn(animationSpec = tween(defaultMilli)) +
-                expandVertically(animationSpec = tween(defaultMilli)),
-        exit = fadeOut(animationSpec = tween(defaultMilli)) +
-                shrinkVertically(animationSpec = tween(defaultMilli))
+        enter = fadeIn(animationSpec = tween(AppConstant.DEFAULT_MILLI)) +
+            expandVertically(animationSpec = tween(AppConstant.DEFAULT_MILLI)),
+        exit = fadeOut(animationSpec = tween(AppConstant.DEFAULT_MILLI)) +
+            shrinkVertically(animationSpec = tween(AppConstant.DEFAULT_MILLI))
     ) {
         val colorValue = if (hasInfo!!) {
             MaterialTheme.colorScheme.outline

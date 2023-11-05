@@ -34,6 +34,9 @@ class RefreshTokenServiceTest {
         refreshToken = "refresh"
     )
 
+    private val expectedExpired = 7200
+    private val expectedCreated = 1699078715
+
     @Before
     fun setup() {
         mockWebServer = MockWebServer()
@@ -61,20 +64,20 @@ class RefreshTokenServiceTest {
         enqueueResponse("success_200.json")
         val response = service.refreshToken(refreshBody)
         val request = mockWebServer.takeRequest()
-        //is correct request
+        // is correct request
         Truth.assertThat(request.method).isEqualTo("POST")
         Truth.assertThat(request.path).isEqualTo("/" + RefreshTokenService.REFRESH)
-        //is correct response
+        // is correct response
         Truth.assertThat(response.code()).isEqualTo(HttpURLConnection.HTTP_OK)
         Truth.assertThat(response.body()!!.data.id).isEqualTo("9010")
         Truth.assertThat(response.body()!!.data.type).isEqualTo("token")
         Truth.assertThat(response.body()!!.data.attributes.accessToken)
             .isEqualTo("Jp3g3znWCQV3BiNHn7uzMddw7woiOXUEXfMEnr9AqbA")
         Truth.assertThat(response.body()!!.data.attributes.tokenType).isEqualTo("Bearer")
-        Truth.assertThat(response.body()!!.data.attributes.expired).isEqualTo(7200)
+        Truth.assertThat(response.body()!!.data.attributes.expired).isEqualTo(expectedExpired)
         Truth.assertThat(response.body()!!.data.attributes.refreshToken)
             .isEqualTo("oDF3OWtf0gZnShJqVL9zXDlKS3mr-vfiNDfnZYo583s")
-        Truth.assertThat(response.body()!!.data.attributes.created).isEqualTo(1699078715)
+        Truth.assertThat(response.body()!!.data.attributes.created).isEqualTo(expectedCreated)
     }
 
     @Test

@@ -15,7 +15,6 @@ import kotlinx.coroutines.test.setMain
 import org.junit.Rule
 import org.junit.Test
 
-
 @OptIn(ExperimentalCoroutinesApi::class)
 class GetSurveysTest {
     @get:Rule
@@ -23,7 +22,6 @@ class GetSurveysTest {
 
     @Test
     fun `get surveys from db successfully done`() = runTest {
-
         val dao = FakeHomeDbRepository()
         val getSurveys = GetSurveys(
             dao = dao

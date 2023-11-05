@@ -36,7 +36,6 @@ import com.kyawlinnthant.theme.dimen
 fun FirstTimeLoadingView(
     modifier: Modifier = Modifier
 ) {
-
     val shimmerColors = listOf(
         Color.LightGray.copy(alpha = 0.5f),
         Color.LightGray.copy(alpha = 0.3f),
@@ -52,7 +51,8 @@ fun FirstTimeLoadingView(
                 easing = FastOutSlowInEasing
             ),
             repeatMode = RepeatMode.Reverse
-        ), label = ""
+        ),
+        label = ""
     )
     val brush = Brush.linearGradient(
         colors = shimmerColors,

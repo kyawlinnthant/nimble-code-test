@@ -5,9 +5,7 @@ import com.kyawlinnthant.domain.form.LoginForm
 import com.kyawlinnthant.util.FormValidator
 import javax.inject.Inject
 
-class ValidateLogin @Inject constructor(
-
-) {
+class ValidateLogin @Inject constructor() {
     operator fun invoke(
         form: LoginForm
     ): LoginError {
@@ -17,6 +15,5 @@ class ValidateLogin @Inject constructor(
             isErrorEmail = !isVerifiedEmail,
             isErrorPassword = !isVerifiedPassword
         )
-
     }
 }

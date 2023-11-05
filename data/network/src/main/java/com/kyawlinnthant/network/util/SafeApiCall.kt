@@ -4,7 +4,7 @@ import com.kyawlinnthant.network.model.ErrorResponse
 import kotlinx.serialization.json.Json
 import retrofit2.Response
 
-//These are some examples for handling error, for production purpose, these error messages will be replaced with proper data
+// These are some examples for handling error, for production purpose, these error messages will be replaced with proper data
 inline fun <reified T> safeApiCall(
     apiCall: () -> Response<T>
 ): DataResult<T> {

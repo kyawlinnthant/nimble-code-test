@@ -34,7 +34,7 @@ fun NavGraphBuilder.homeGraph(
         composable(route = Screens.SurveyDetail.getAbsolutePath()) {
             LaunchedEffect(key1 = true) {
                 val surveyId = it.arguments?.getString(Screens.DETAIL_ID)
-                Log.d("here.graph","$surveyId")
+                Log.d("here.graph", "$surveyId")
                 controller.previousBackStackEntry?.savedStateHandle.apply {
                     Screens.DETAIL_ID to surveyId
                 }
@@ -47,7 +47,6 @@ fun NavGraphBuilder.homeGraph(
                 name = name.value,
                 onAction = vm::onAction
             )
-
         }
     }
 }

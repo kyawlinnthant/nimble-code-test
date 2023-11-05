@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import com.kyawlinnthant.theme.dimen
+import com.kyawlinnthant.util.AppConstant
 
 @Composable
 fun PagerIndicator(
@@ -40,7 +41,6 @@ fun PagerIndicator(
             )
         }
     }
-
 }
 
 @Composable
@@ -60,9 +60,11 @@ fun IndicateIcon(
             .width(width.value)
             .clip(CircleShape)
             .background(
-                if (isSelected) MaterialTheme.colorScheme.primary
-                else
-                    MaterialTheme.colorScheme.onSurface.copy(0.5f)
+                if (isSelected) {
+                    MaterialTheme.colorScheme.primary
+                } else {
+                    MaterialTheme.colorScheme.onSurface.copy(AppConstant.DEFAULT_ALPHA)
+                }
 
             )
     )

@@ -11,8 +11,9 @@ interface AuthService {
         const val LOGIN = "oauth/token"
         private const val FORGOT_PASSWORD = "passwords"
     }
+
     @POST(LOGIN)
     suspend fun login(
-        @Body body : LoginRequest
+        @Body body: LoginRequest
     ): Response<LoginResponse>
 }

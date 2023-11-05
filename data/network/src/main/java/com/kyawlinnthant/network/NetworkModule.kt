@@ -9,13 +9,13 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import retrofit2.Converter
 import retrofit2.Retrofit
 import javax.inject.Qualifier
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -24,7 +24,6 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideJson(): Json {
-
         return Json {
             ignoreUnknownKeys = true
             encodeDefaults = true
@@ -59,7 +58,7 @@ object NetworkModule {
     @TokenClient
     fun provideTokenClient(
         header: HeaderInterceptor? = null,
-        authenticator: TokenAuthenticator? = null,
+        authenticator: TokenAuthenticator? = null
     ): OkHttpClient = OkHttpClient.Builder()
         .apply {
             header?.let {
@@ -69,7 +68,6 @@ object NetworkModule {
                 this.authenticator(it)
             }
         }.build()
-
 
     @Retention(AnnotationRetention.BINARY)
     @Qualifier

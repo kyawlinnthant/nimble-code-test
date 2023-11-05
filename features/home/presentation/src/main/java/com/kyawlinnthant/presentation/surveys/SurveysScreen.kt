@@ -9,15 +9,15 @@ import com.kyawlinnthant.presentation.surveys.udf.SurveysUiState
 @Composable
 fun SurveysScreen(
     uiState: SurveysUiState,
-    onAction: (SurveysAction) -> Unit,
+    onAction: (SurveysAction) -> Unit
 ) {
     Scaffold(
         contentWindowInsets = WindowInsets(
             left = 0,
             top = 0,
             right = 0,
-            bottom = 0,
-        ),
+            bottom = 0
+        )
     ) {
         SurveysContent(
             uiState = uiState,
@@ -25,5 +25,4 @@ fun SurveysScreen(
             onAction = onAction
         )
     }
-
 }
