@@ -64,3 +64,11 @@ User can navigate back to Surveys Screen.
  - Network Api Call Handler (safeApiCall)
  - at least 6 chars
  - not exceed 24 chars
+
+### CI
+Run Continuous Integration with Github Actions (android_build.yml)
+- code_linting
+  - run ktlintCheck
+- unit_tests
+  - run detekt
+  - run unit tests
