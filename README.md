@@ -48,4 +48,19 @@ User can navigate back to Surveys Screen.
 ![light](https://github.com/kyawlinnthant/nimble-code-test/assets/24668175/3c80cb33-6faa-480f-a45c-b09b45d77846)
 ![dark](https://github.com/kyawlinnthant/nimble-code-test/assets/24668175/60fc00c9-7ab8-416f-869b-2951f7986e6b)
 
+### TDD
 
+#### Data Layer Testing
+ - ApiService
+ - Database
+ - Preferences Datastore
+ - Repository 
+
+#### Data Layer Testing
+ - Usecases
+   
+#### Unit Test   
+ - FormValidator
+ - Network Api Call Handler (safeApiCall)
+ - at least 6 chars
+ - not exceed 24 chars
