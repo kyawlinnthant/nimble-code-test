@@ -56,7 +56,7 @@ User can navigate back to Surveys Screen.
  - Preferences Datastore
  - Repository 
 
-#### Data Layer Testing
+#### Domain Layer Testing
  - Usecases
    
 #### Unit Test   
