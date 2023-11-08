@@ -8,7 +8,6 @@ import com.kyawlinnthant.data.model.LoginResponse
 import com.kyawlinnthant.data.service.AuthService
 import com.kyawlinnthant.network.util.DataResult
 import com.kyawlinnthant.testrule.CoroutinesTestRule
-import com.kyawlinnthant.util.AppConstant
 import kotlinx.coroutines.test.runTest
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.ResponseBody.Companion.toResponseBody
@@ -29,8 +28,8 @@ class AuthApiRepositoryTest {
         type = "password",
         email = "kyawlinnthantkyawlinnthant@gmail.com",
         password = "Apple!123",
-        clientId = AppConstant.CLIENT_ID,
-        clientSecret = AppConstant.CLIENT_SECRET
+        clientId = "AppConstant.CLIENT_ID",
+        clientSecret = "AppConstant.CLIENT_SECRET"
     )
     private val mockLoginResponse = LoginResponse(
         data = LoginData(

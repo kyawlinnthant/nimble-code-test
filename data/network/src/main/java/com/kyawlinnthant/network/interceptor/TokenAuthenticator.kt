@@ -1,11 +1,11 @@
 package com.kyawlinnthant.network.interceptor
 
+import com.kyawlinnthant.network.BuildConfig
 import com.kyawlinnthant.network.model.RefreshTokenRequest
 import com.kyawlinnthant.network.service.RefreshTokenService
 import com.kyawlinnthant.network.util.DataResult
 import com.kyawlinnthant.network.util.safeApiCall
 import com.kyawlinnthant.pref.PrefDataStore
-import com.kyawlinnthant.util.AppConstant
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.runBlocking
@@ -38,8 +38,8 @@ class TokenAuthenticator @Inject constructor(
         val body = RefreshTokenRequest(
             type = "refresh_token",
             refreshToken = refreshToken,
-            clientId = AppConstant.CLIENT_ID,
-            clientSecret = AppConstant.CLIENT_SECRET
+            clientId = BuildConfig.CLIENT_ID,
+            clientSecret = BuildConfig.CLIENT_SECRET
         )
         when (
             val response = safeApiCall {
