@@ -30,8 +30,8 @@ class AuthServiceTest {
         type = "password",
         email = "kyawlinnthantkyawlinnthant@gmail.com",
         password = "Apple!123",
-        clientId = BuildConfig.CLIENT_ID,
-        clientSecret = BuildConfig.CLIENT_SECRET
+        clientId = "BuildConfig.CLIENT_ID",
+        clientSecret = "BuildConfig.CLIENT_SECRET"
     )
     private val expectedExpired = 7200
     private val expectedCreated = 1698946679

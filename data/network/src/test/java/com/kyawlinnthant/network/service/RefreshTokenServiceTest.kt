@@ -29,8 +29,8 @@ class RefreshTokenServiceTest {
     private val factory = json.asConverterFactory("application/json".toMediaType())
     private val refreshBody = RefreshTokenRequest(
         type = "password",
-        clientId = BuildConfig.CLIENT_ID,
-        clientSecret = BuildConfig.CLIENT_SECRET,
+        clientId = "BuildConfig.CLIENT_ID",
+        clientSecret = "BuildConfig.CLIENT_SECRET",
         refreshToken = "refresh"
     )
 
