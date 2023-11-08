@@ -4,13 +4,13 @@ import androidx.core.util.PatternsCompat
 import java.util.regex.Pattern
 
 /**
- - at least one Upper letter
- - at least one Lower letter
- - at least one digit
- - at least one special character !@#$%^&+-
- - no space in password
- - at least 6 chars
- - not exceed 24 chars
+- at least one Upper letter
+- at least one Lower letter
+- at least one digit
+- at least one special character !@#$%^&+-
+- no space in password
+- at least 6 chars
+- not exceed 24 chars
  */
 object FormValidator {
 
@@ -38,4 +38,6 @@ object FormValidator {
         }
         return true
     }
+
+    fun isVerifiedPwd(password: String) = password.trim().isNotEmpty()
 }

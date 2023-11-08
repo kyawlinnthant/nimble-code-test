@@ -32,7 +32,7 @@ class ValidateLoginTest {
         )
         val invalidPassword = LoginForm(
             email = "kyawlinnthant@gmail.com",
-            password = "123"
+            password = ""
         )
         Dispatchers.setMain(StandardTestDispatcher())
         val successExpected = validator.invoke(form = successForm)

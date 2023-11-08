@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kyawlinnthant.domain.usecase.FetchSurveys
 import com.kyawlinnthant.domain.usecase.GetSurveys
-import com.kyawlinnthant.navigation.Screens
 import com.kyawlinnthant.navigation.navigator.AppNavigator
 import com.kyawlinnthant.network.util.DataResult
 import com.kyawlinnthant.presentation.surveys.udf.SurveysAction
@@ -83,12 +82,12 @@ class SurveysViewModel @Inject constructor(
     fun onAction(action: SurveysAction) {
         when (action) {
             is SurveysAction.GoToDetail -> {
-                appNavigator.to(
-                    route = Screens.SurveyDetail.passId(
-                        id = action.id,
-                        name = action.name
-                    )
-                )
+//                appNavigator.to(
+//                    route = Screens.SurveyDetail.passId(
+//                        id = action.id,
+//                        name = action.name
+//                    )
+//                )
             }
 
             SurveysAction.Retry -> fetchSurveysFromServer()

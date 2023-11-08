@@ -10,7 +10,7 @@ class ValidateLogin @Inject constructor() {
         form: LoginForm
     ): LoginError {
         val isVerifiedEmail = FormValidator.isVerifiedEmail(form.email.trim())
-        val isVerifiedPassword = FormValidator.isVerifiedPassword(form.password.trim())
+        val isVerifiedPassword = FormValidator.isVerifiedPwd(form.password.trim())
         return LoginError(
             isErrorEmail = !isVerifiedEmail,
             isErrorPassword = !isVerifiedPassword
