@@ -3,7 +3,6 @@ package com.kyawlinnthant.network.service
 import com.google.common.truth.Truth
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.kyawlinnthant.network.model.RefreshTokenRequest
-import com.kyawlinnthant.util.AppConstant
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -29,8 +28,8 @@ class RefreshTokenServiceTest {
     private val factory = json.asConverterFactory("application/json".toMediaType())
     private val refreshBody = RefreshTokenRequest(
         type = "password",
-        clientId = AppConstant.CLIENT_ID,
-        clientSecret = AppConstant.CLIENT_SECRET,
+        clientId = "BuildConfig.CLIENT_ID",
+        clientSecret = "BuildConfig.CLIENT_SECRET",
         refreshToken = "refresh"
     )
 

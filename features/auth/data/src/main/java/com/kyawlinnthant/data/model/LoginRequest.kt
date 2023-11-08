@@ -3,15 +3,6 @@ package com.kyawlinnthant.data.model
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-/*
-{
-  "grant_type": "password",
-  "email": "dev@example.com",
-  "password": "password",
-  "client_id": "ly1nj6n11vionaie65emwzk575hnnmrk",
-  "client_secret": "hOzsTeFlT6ko0dme22uGbQal04SBPYc1"
-}
-*/
 @Serializable
 data class LoginRequest(
     @SerialName("grant_type")

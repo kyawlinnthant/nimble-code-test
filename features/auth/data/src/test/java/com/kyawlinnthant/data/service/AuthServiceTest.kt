@@ -3,7 +3,6 @@ package com.kyawlinnthant.data.service
 import com.google.common.truth.Truth.assertThat
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.kyawlinnthant.data.model.LoginRequest
-import com.kyawlinnthant.util.AppConstant
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -30,8 +29,8 @@ class AuthServiceTest {
         type = "password",
         email = "kyawlinnthantkyawlinnthant@gmail.com",
         password = "Apple!123",
-        clientId = AppConstant.CLIENT_ID,
-        clientSecret = AppConstant.CLIENT_SECRET
+        clientId = "BuildConfig.CLIENT_ID",
+        clientSecret = "BuildConfig.CLIENT_SECRET"
     )
     private val expectedExpired = 7200
     private val expectedCreated = 1698946679

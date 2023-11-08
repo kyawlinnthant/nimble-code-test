@@ -8,7 +8,6 @@ import com.kyawlinnthant.data.model.LoginResponse
 import com.kyawlinnthant.data.service.AuthService
 import com.kyawlinnthant.network.util.DataResult
 import com.kyawlinnthant.testrule.CoroutinesTestRule
-import com.kyawlinnthant.util.AppConstant
 import kotlinx.coroutines.test.runTest
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.ResponseBody.Companion.toResponseBody
@@ -29,8 +28,8 @@ class AuthApiRepositoryTest {
         type = "password",
         email = "kyawlinnthantkyawlinnthant@gmail.com",
         password = "Apple!123",
-        clientId = AppConstant.CLIENT_ID,
-        clientSecret = AppConstant.CLIENT_SECRET
+        clientId = "BuildConfig.CLIENT_ID",
+        clientSecret = "BuildConfig.CLIENT_SECRET"
     )
     private val mockLoginResponse = LoginResponse(
         data = LoginData(
@@ -70,8 +69,7 @@ class AuthApiRepositoryTest {
         // assume with mock
         `when`(service.login(loginBody)).thenReturn(Response.success(mockLoginResponse))
         val actual = repository!!.login(
-            email = "kyawlinnthantkyawlinnthant@gmail.com",
-            password = "Apple!123"
+            body = loginBody
         )
         assertThat(actual as DataResult.Success).isEqualTo(DataResult.Success(mockLoginResponse))
     }
@@ -85,9 +83,8 @@ class AuthApiRepositoryTest {
             )
         )
         val actual = repository!!.login(
-            email = "kyawlinnthantkyawlinnthant@gmail.com",
-            password = "Apple!123"
+            body = loginBody
         )
-        assertThat(actual).isEqualTo(DataResult.Failed("ErrorResponse is null"))
+        assertThat(actual as DataResult.Failed).isEqualTo(DataResult.Failed("ErrorResponse is null"))
     }
 }

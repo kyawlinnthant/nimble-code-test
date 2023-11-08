@@ -1,5 +1,7 @@
 package com.kyawlinnthant.domain.usecase
 
+import com.kyawlinnthant.auth.domain.BuildConfig
+import com.kyawlinnthant.data.model.LoginRequest
 import com.kyawlinnthant.data.repository.AuthApiRepository
 import com.kyawlinnthant.data.repository.AuthDsRepository
 import com.kyawlinnthant.domain.form.LoginForm
@@ -13,11 +15,15 @@ class Login @Inject constructor(
     suspend operator fun invoke(
         form: LoginForm
     ): DataResult<Boolean> {
+        val body = LoginRequest(
+            email = form.email.trim(),
+            password = form.password.trim(),
+            clientId = BuildConfig.CLIENT_ID,
+            clientSecret = BuildConfig.CLIENT_SECRET
+        )
         return when (
             val response = api.login(
-                email = form.email.trim(),
-                password = form.password.trim()
-
+                body = body
             )
         ) {
             is DataResult.Failed -> DataResult.Failed(message = response.message)

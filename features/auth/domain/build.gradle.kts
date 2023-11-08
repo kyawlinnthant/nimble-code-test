@@ -1,3 +1,4 @@
+import java.util.Properties
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     id("com.kyawlinnthant.android.library")
@@ -6,6 +7,23 @@ plugins {
 
 android {
     namespace = "com.kyawlinnthant.auth.domain"
+    buildFeatures {
+        buildConfig = true
+    }
+    defaultConfig {
+        val properties = Properties()
+        properties.load(project.rootProject.file("local.properties").inputStream())
+        buildConfigField(
+            type = "String",
+            name = "CLIENT_ID",
+            value = "\"${properties.getProperty("CLIENT_ID")}\""
+        )
+        buildConfigField(
+            type = "String",
+            name = "CLIENT_SECRET",
+            value = "\"${properties.getProperty("CLIENT_SECRET")}\""
+        )
+    }
 }
 dependencies {
     api(project(":features:auth:data"))

@@ -3,6 +3,7 @@ package com.kyawlinnthant.domain
 import com.kyawlinnthant.data.model.ForgotPasswordResponse
 import com.kyawlinnthant.data.model.LoginAttribute
 import com.kyawlinnthant.data.model.LoginData
+import com.kyawlinnthant.data.model.LoginRequest
 import com.kyawlinnthant.data.model.LoginResponse
 import com.kyawlinnthant.data.repository.AuthApiRepository
 import com.kyawlinnthant.network.util.DataResult
@@ -25,7 +26,7 @@ class FakeAuthApiRepository : AuthApiRepository {
         )
     }
 
-    override suspend fun login(email: String, password: String): DataResult<LoginResponse> {
+    override suspend fun login(body: LoginRequest): DataResult<LoginResponse> {
         return DataResult.Success(mockLoginResponse)
     }
 
