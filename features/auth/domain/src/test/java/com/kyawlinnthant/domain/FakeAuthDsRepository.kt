@@ -30,12 +30,12 @@ class FakeAuthDsRepository : AuthDsRepository {
         return flow { emit(isAuthenticated) }
     }
 
-    override suspend fun pullAccessToken(): Flow<String> {
-        return flow { emit(accessToken) }
+    override suspend fun pullAccessToken(): String {
+        return accessToken
     }
 
-    override suspend fun pullRefreshToken(): Flow<String> {
-        return flow { emit(refreshToken) }
+    override suspend fun pullRefreshToken(): String {
+        return refreshToken
     }
 
     override suspend fun pullTokenType(): Flow<String> {
