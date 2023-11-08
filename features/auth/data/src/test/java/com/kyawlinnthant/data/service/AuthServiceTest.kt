@@ -2,7 +2,6 @@ package com.kyawlinnthant.data.service
 
 import com.google.common.truth.Truth.assertThat
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import com.kyawlinnthant.auth.data.BuildConfig
 import com.kyawlinnthant.data.model.LoginRequest
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json

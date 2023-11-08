@@ -2,7 +2,6 @@ package com.kyawlinnthant.network.service
 
 import com.google.common.truth.Truth
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import com.kyawlinnthant.network.BuildConfig
 import com.kyawlinnthant.network.model.RefreshTokenRequest
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
