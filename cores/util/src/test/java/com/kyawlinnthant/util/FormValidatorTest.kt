@@ -110,4 +110,20 @@ class FormValidatorTest {
         )
         assertThat(result).isTrue()
     }
+
+    @Test
+    fun `empty password with new logic returns false`() {
+        val result = FormValidator.isVerifiedPwd(
+            password = ""
+        )
+        assertThat(result).isFalse()
+    }
+
+    @Test
+    fun `correct password with new logic returns true`() {
+        val result = FormValidator.isVerifiedPwd(
+            password = "Apple!12345"
+        )
+        assertThat(result).isTrue()
+    }
 }

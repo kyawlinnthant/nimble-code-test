@@ -14,17 +14,11 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextAlign
 import com.kyawlinnthant.auth.presentation.R
 import com.kyawlinnthant.domain.form.LoginError
 import com.kyawlinnthant.domain.form.LoginForm
@@ -39,9 +33,6 @@ fun LoginContent(
     error: LoginError,
     onAction: (LoginAction) -> Unit
 ) {
-    val focusRequester = remember { FocusRequester() }
-    val isPasswordFocused = remember { mutableStateOf(false) }
-
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -71,40 +62,19 @@ fun LoginContent(
             errorMessage = stringResource(id = R.string.valid_email)
         )
         Spacer(modifier = modifier.height(MaterialTheme.dimen.base2x))
-        LoginTextField(
-            modifier = modifier
-                .focusRequester(focusRequester)
-                .onFocusChanged { focusState ->
-                    isPasswordFocused.value = focusState.isFocused
-                },
+
+        PasswordTextField(
+            password = form.password,
+            isError = error.isErrorPassword,
+            errorMessage = stringResource(id = R.string.valid_password),
             placeholder = stringResource(id = R.string.password),
-            value = form.password,
-            keyboardType = KeyboardType.Password,
+            innerButtonText = stringResource(id = R.string.forgot),
+            innerButtonClick = {},
             onValueCleared = {
                 onAction(LoginAction.UpdatePassword(""))
             },
-            onValueChanged = {
-                onAction(LoginAction.UpdatePassword(it))
-            },
-            isError = error.isErrorPassword,
-            errorMessage = stringResource(id = R.string.valid_password),
-            isContainInnerButton = true,
-            innerButtonClick = {
-                onAction(LoginAction.ForgotPassword)
-            },
-            innerButtonText = stringResource(id = R.string.forgot)
+            onValueChanged = { onAction(LoginAction.UpdatePassword(it)) }
         )
-
-        if (isPasswordFocused.value) {
-            Text(
-                text = stringResource(R.string.password_rule),
-                style = MaterialTheme.typography.labelSmall,
-                textAlign = TextAlign.Start,
-                modifier = modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = MaterialTheme.dimen.base3x)
-            )
-        }
         Spacer(modifier = modifier.height(MaterialTheme.dimen.base2x))
         Button(
             onClick = { onAction(LoginAction.Login) },
