@@ -1,5 +1,6 @@
 package com.kyawlinnthant.network.interceptor
 
+import com.kyawlinnthant.encrypted.EncryptedPrefSource
 import com.kyawlinnthant.network.BuildConfig
 import com.kyawlinnthant.network.model.RefreshTokenRequest
 import com.kyawlinnthant.network.service.RefreshTokenService
@@ -17,7 +18,8 @@ import javax.inject.Inject
 
 class TokenAuthenticator @Inject constructor(
     private val api: RefreshTokenService,
-    private val ds: PrefDataStore
+    private val ds: PrefDataStore,
+    private val pref: EncryptedPrefSource
 ) : Authenticator {
 
     // this authenticate will occur everytime server response UnAuthenticated
@@ -33,8 +35,8 @@ class TokenAuthenticator @Inject constructor(
     }
 
     private suspend fun updateToken(): String {
-        val refreshToken = ds.pullRefreshToken().firstOrNull() ?: ""
-        var accessToken = ds.pullAccessToken().firstOrNull() ?: ""
+        val refreshToken = pref.getRefreshToken()
+        var accessToken = pref.getAccessToken()
         val body = RefreshTokenRequest(
             type = "refresh_token",
             refreshToken = refreshToken,
@@ -51,9 +53,9 @@ class TokenAuthenticator @Inject constructor(
             }
 
             is DataResult.Success -> {
-                ds.apply {
-                    putAccessToken(response.data.data.attributes.accessToken)
-                    putRefreshToken(response.data.data.attributes.refreshToken)
+                pref.apply {
+                    saveAccessToken(response.data.data.attributes.accessToken)
+                    saveRefreshToken(response.data.data.attributes.refreshToken)
                 }
                 accessToken = response.data.data.attributes.accessToken
             }

@@ -1,6 +1,7 @@
 package com.kyawlinnthant.data.repository
 
 import com.google.common.truth.Truth.assertThat
+import com.kyawlinnthant.encrypted.EncryptedPrefSource
 import com.kyawlinnthant.pref.PrefDataStore
 import com.kyawlinnthant.testrule.CoroutinesTestRule
 import kotlinx.coroutines.flow.first
@@ -14,6 +15,7 @@ import org.mockito.Mockito
 
 class AuthDsRepositoryTest {
     private lateinit var pref: PrefDataStore
+    private lateinit var encrypted: EncryptedPrefSource
     private var repository: AuthDsRepositoryImpl? = null
 
     @get:Rule
@@ -22,9 +24,11 @@ class AuthDsRepositoryTest {
     @Before
     fun setup() {
         pref = Mockito.mock(PrefDataStore::class.java)
+        encrypted = Mockito.mock(EncryptedPrefSource::class.java)
 
         repository = AuthDsRepositoryImpl(
             ds = pref,
+            encryptedPref = encrypted,
             io = testRule.testDispatcher
         )
     }

@@ -4,6 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth.assertThat
+import com.kyawlinnthant.PrefModule
 import com.kyawlinnthant.testrule.CoroutinesTestRule
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -48,30 +49,10 @@ class PrefDataStoreTest {
 
     @Test
     fun initial_data_are_empty_string() = runTest {
-        val accessToken = pref!!.pullAccessToken().first()
-        val refreshToken = pref!!.pullRefreshToken().first()
         val tokenType = pref!!.pullTokenType().first()
         val isAuthenticated = pref!!.pullIsAuthenticated().first()
-        assertThat(accessToken).isEqualTo("")
-        assertThat(refreshToken).isEqualTo("")
         assertThat(tokenType).isEqualTo("")
         assertThat(isAuthenticated).isEqualTo(false)
-    }
-
-    @Test
-    fun put_and_pull_correctly_work_for_access_token() = runTest {
-        val expected = "Access Token"
-        pref!!.putAccessToken(expected)
-        val actual = pref!!.pullAccessToken().first()
-        assertThat(actual).isEqualTo(expected)
-    }
-
-    @Test
-    fun put_and_pull_correctly_work_for_refresh_token() = runTest {
-        val expected = "Refresh Token"
-        pref!!.putRefreshToken(expected)
-        val actual = pref!!.pullRefreshToken().first()
-        assertThat(actual).isEqualTo(expected)
     }
 
     @Test

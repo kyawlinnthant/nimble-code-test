@@ -24,26 +24,8 @@ class PrefDataStoreImpl @Inject constructor(
 
     companion object {
         const val PREF_NAME = "token.ds.pref"
-        val ACCESS_TOKEN = stringPreferencesKey("com.kyawlinnthant.access.token")
-        val REFRESH_TOKEN = stringPreferencesKey("com.kyawlinnthant.refresh.token")
         val TOKEN_TYPE = stringPreferencesKey("com.kyawlinnthant.token.type")
         val IS_AUTHENTICATED = booleanPreferencesKey("com.kyawlinnthant.authenticated")
-    }
-
-    override suspend fun putAccessToken(token: String) {
-        withContext(io) {
-            ds.edit {
-                it[ACCESS_TOKEN] = token
-            }
-        }
-    }
-
-    override suspend fun putRefreshToken(token: String) {
-        withContext(io) {
-            ds.edit {
-                it[REFRESH_TOKEN] = token
-            }
-        }
     }
 
     override suspend fun putTokenType(type: String) {
@@ -60,28 +42,6 @@ class PrefDataStoreImpl @Inject constructor(
                 it[IS_AUTHENTICATED] = isLoggedIn
             }
         }
-    }
-
-    override suspend fun pullAccessToken(): Flow<String> {
-        return ds.data
-            .catch { e ->
-                if (e is IOException) emit(emptyPreferences()) else throw e
-            }
-            .map {
-                it[ACCESS_TOKEN] ?: ""
-            }
-            .flowOn(io)
-    }
-
-    override suspend fun pullRefreshToken(): Flow<String> {
-        return ds.data
-            .catch { e ->
-                if (e is IOException) emit(emptyPreferences()) else throw e
-            }
-            .map {
-                it[REFRESH_TOKEN] ?: ""
-            }
-            .flowOn(io)
     }
 
     override suspend fun pullTokenType(): Flow<String> {

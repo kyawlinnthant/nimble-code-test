@@ -14,4 +14,5 @@ android {
 dependencies {
     api(project(":cores:dispatchers"))
     api(project(":testrule"))
+    implementation(libs.androidx.encrypted.preferences)
 }
