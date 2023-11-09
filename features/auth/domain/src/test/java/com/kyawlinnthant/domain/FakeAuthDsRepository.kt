@@ -41,4 +41,11 @@ class FakeAuthDsRepository : AuthDsRepository {
     override suspend fun pullTokenType(): Flow<String> {
         return flow { emit(tokenType) }
     }
+
+    override suspend fun alertLogout() {
+        accessToken = ""
+        refreshToken = ""
+        tokenType = ""
+        isAuthenticated = false
+    }
 }
