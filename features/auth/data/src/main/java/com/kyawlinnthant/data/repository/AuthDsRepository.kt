@@ -14,4 +14,6 @@ interface AuthDsRepository {
     suspend fun pullAccessToken(): String
     suspend fun pullRefreshToken(): String
     suspend fun pullTokenType(): Flow<String>
+
+    suspend fun alertLogout()
 }

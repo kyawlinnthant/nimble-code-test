@@ -14,10 +14,15 @@ fun MainScreen() {
     val vm: MainViewModel = hiltViewModel()
     val navHostController = rememberNavController()
     val isLoggedIn = vm.isLoggedIn.collectAsState()
+    val hasLoggedOut = vm.isLoggedOut.collectAsState()
     NavigationInstructor(
         instructor = vm.appNavigator.instructor,
         controller = navHostController,
     )
+
+    if (hasLoggedOut.value.isNotEmpty()) {
+        LoginAgainDialog(description = hasLoggedOut.value, onClick = vm::loginAgain)
+    }
     Scaffold(
         contentWindowInsets = WindowInsets(
             left = 0,

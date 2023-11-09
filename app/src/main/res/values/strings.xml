@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">nimble</string>
+    <string name="login_again">Login Again</string>
+    <string name="logout_alert">Logout Alert</string>
 </resources>
