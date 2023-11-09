@@ -11,9 +11,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -26,7 +29,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import com.kyawlinnthant.theme.NimbleTheme
@@ -65,7 +67,7 @@ fun FirstTimeLoadingView(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .testTag("first_time_loading")
+            .padding(bottom = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding())
             .padding(top = MaterialTheme.dimen.base3x, bottom = MaterialTheme.dimen.base3x)
     ) {
         Row(
@@ -76,9 +78,9 @@ fun FirstTimeLoadingView(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column {
-                ShimmerItem(fraction = 0.45f, brush = brush)
+                ShimmerItem(fraction = 0.35f, brush = brush)
                 Spacer(modifier = modifier.height(MaterialTheme.dimen.base))
-                ShimmerItem(fraction = 0.4f, brush = brush)
+                ShimmerItem(fraction = 0.3f, brush = brush)
             }
             ProfileShimmer(brush = brush)
         }
@@ -90,13 +92,13 @@ fun FirstTimeLoadingView(
             verticalArrangement = Arrangement.Bottom,
             horizontalAlignment = Alignment.Start
         ) {
-            ShimmerItem(fraction = 0.25f, brush = brush)
+            ShimmerItem(fraction = 0.15f, brush = brush)
             Spacer(modifier = modifier.height(MaterialTheme.dimen.base))
-            ShimmerItem(fraction = 0.8f, brush = brush)
-            Spacer(modifier = modifier.height(MaterialTheme.dimen.base))
-            ShimmerItem(fraction = 0.45f, brush = brush)
-            Spacer(modifier = modifier.height(MaterialTheme.dimen.base2x))
             ShimmerItem(fraction = 0.75f, brush = brush)
+            Spacer(modifier = modifier.height(MaterialTheme.dimen.base))
+            ShimmerItem(fraction = 0.35f, brush = brush)
+            Spacer(modifier = modifier.height(MaterialTheme.dimen.base2x))
+            ShimmerItem(fraction = 0.85f, brush = brush)
             Spacer(modifier = modifier.height(MaterialTheme.dimen.base))
             ShimmerItem(fraction = 0.5f, brush = brush)
         }
@@ -107,7 +109,7 @@ fun FirstTimeLoadingView(
 fun ProfileShimmer(
     modifier: Modifier = Modifier,
     brush: Brush,
-    size: Dp = MaterialTheme.dimen.base4x
+    size: Dp = MaterialTheme.dimen.profile
 ) {
     Spacer(
         modifier = modifier

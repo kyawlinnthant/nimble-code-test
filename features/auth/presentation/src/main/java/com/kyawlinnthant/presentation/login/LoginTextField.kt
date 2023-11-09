@@ -1,5 +1,6 @@
 package com.kyawlinnthant.presentation.login
 
+import android.content.res.Configuration
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.expandVertically
@@ -18,19 +19,18 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActionScope
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import com.kyawlinnthant.auth.presentation.R
+import androidx.compose.ui.tooling.preview.Preview
+import com.kyawlinnthant.theme.NimbleTheme
 import com.kyawlinnthant.theme.dimen
 import com.kyawlinnthant.util.AppConstant
 
@@ -42,12 +42,12 @@ fun LoginTextField(
     onValueChanged: (String) -> Unit = {},
     keyboardType: KeyboardType = KeyboardType.Text,
     imeAction: ImeAction = ImeAction.Go,
-    onValueCleared: () -> Unit = {},
     isError: Boolean = false,
     errorMessage: String = "",
     singleLine: Boolean = true,
     keyboardAction: (KeyboardActionScope) -> Unit = {},
-    backgroundAlpha: Float = 0.2f
+    backgroundAlpha: Float = 0.18f,
+    placeholderAlpha: Float = 0.5f
 ) {
     Column(
         modifier = modifier
@@ -65,21 +65,20 @@ fun LoginTextField(
             BasicTextField(
                 modifier = modifier
                     .fillMaxWidth()
-                    .padding(vertical = MaterialTheme.dimen.base2x)
-                    .weight(1f),
+                    .padding(vertical = MaterialTheme.dimen.base2x),
                 value = value,
                 onValueChange = {
                     onValueChanged(it)
                 },
-                textStyle = MaterialTheme.typography.bodyLarge.copy(
+                textStyle = MaterialTheme.typography.bodyMedium.copy(
                     color = MaterialTheme.colorScheme.onSurface
                 ),
                 decorationBox = { innerTextField ->
                     if (value.isEmpty()) {
                         Text(
                             text = placeholder,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            style = MaterialTheme.typography.bodyLarge
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = placeholderAlpha),
+                            style = MaterialTheme.typography.bodyMedium
                         )
                     }
                     innerTextField()
@@ -101,16 +100,6 @@ fun LoginTextField(
                     value = MaterialTheme.colorScheme.primary
                 )
             )
-            if (value.isNotEmpty()) {
-                IconButton(onClick = onValueCleared) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.baseline_clear_24),
-                        contentDescription = "Trailing Icon",
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant
-
-                    )
-                }
-            }
         }
 
         VisibilityAnimator(
@@ -150,5 +139,30 @@ fun VisibilityAnimator(
             style = MaterialTheme.typography.bodySmall,
             color = colorValue
         )
+    }
+}
+
+@Composable
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+private fun EmptyPasswordTextFieldPreview() {
+    NimbleTheme {
+        Surface {
+            LoginTextField(
+                placeholder = "Email"
+            )
+        }
+    }
+}
+
+@Composable
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+private fun NotEmptyPasswordTextFieldPreview() {
+    NimbleTheme {
+        Surface {
+            LoginTextField(
+                placeholder = "Email",
+                value = "geno@gmail.com"
+            )
+        }
     }
 }

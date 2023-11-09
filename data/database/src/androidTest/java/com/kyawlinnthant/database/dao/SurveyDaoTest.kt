@@ -46,7 +46,9 @@ class SurveyDaoTest {
             id = "id1",
             name = "name1",
             description = "description1",
-            image = "image1"
+            image = "image1",
+            createdAt = "created1",
+            activeAt = "active1"
         )
 
         dao.insertSurvey(dummy)
@@ -65,19 +67,25 @@ class SurveyDaoTest {
                 id = "id1",
                 name = "name1",
                 description = "description1",
-                image = "image1"
+                image = "image1",
+                createdAt = "created1",
+                activeAt = "active1"
             ),
             SurveyEntity(
                 id = "id2",
                 name = "name2",
                 description = "description2",
-                image = "image2"
+                image = "image2",
+                createdAt = "created2",
+                activeAt = "active2"
             ),
             SurveyEntity(
                 id = "id3",
                 name = "name3",
                 description = "description3",
-                image = "image3"
+                image = "image3",
+                createdAt = "created3",
+                activeAt = "active3"
             )
         )
 
@@ -93,7 +101,9 @@ class SurveyDaoTest {
             id = "id1",
             name = "name1",
             description = "description1",
-            image = "image1"
+            image = "image1",
+            createdAt = "created1",
+            activeAt = "active1"
         )
         dao.insertSurvey(dummy1)
 
@@ -102,7 +112,9 @@ class SurveyDaoTest {
             id = "id1",
             name = "name1",
             description = "description1",
-            image = "image1"
+            image = "image1",
+            createdAt = "created1",
+            activeAt = "active1"
         )
         dao.insertSurvey(dummy2)
 

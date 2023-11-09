@@ -14,7 +14,9 @@ data class SurveyEntity(
     val id: String,
     val name: String,
     val description: String,
-    val image: String
+    val image: String,
+    val createdAt: String,
+    val activeAt: String
 ) {
     companion object {
         const val TABLE_NAME = "survey_table"
