@@ -57,4 +57,11 @@ class AuthDsRepositoryImpl @Inject constructor(
     override suspend fun pullTokenType(): Flow<String> {
         return ds.pullTokenType().flowOn(io)
     }
+
+    override suspend fun alertLogout() {
+        withContext(io) {
+            ds.clear()
+            encryptedPref.clear()
+        }
+    }
 }

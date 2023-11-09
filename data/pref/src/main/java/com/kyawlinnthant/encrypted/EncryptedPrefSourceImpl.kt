@@ -43,4 +43,12 @@ class EncryptedPrefSourceImpl @Inject constructor(
             pref.getString(REFRESH_TOKEN, null) ?: ""
         }
     }
+
+    override suspend fun clear() {
+        return withContext(io) {
+            pref.edit {
+                clear()
+            }
+        }
+    }
 }
