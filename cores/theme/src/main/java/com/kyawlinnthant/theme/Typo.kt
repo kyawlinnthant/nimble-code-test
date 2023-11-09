@@ -5,6 +5,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.sp
 
 val fonts = FontFamily(
@@ -29,8 +31,13 @@ val NimbleTypo = Typography(
     ),
     displaySmall = TextStyle(
         fontFamily = fonts,
-        lineHeight = 44.sp,
-        fontSize = 36.sp
+        lineHeight = 34.sp,
+        fontSize = 28.sp,
+        fontWeight = FontWeight(weight = 800),
+        letterSpacing = TextUnit(
+            value = -0.5f,
+            type = TextUnitType.Sp
+        )
     ),
     headlineLarge = TextStyle(
         fontFamily = fonts,
@@ -49,8 +56,13 @@ val NimbleTypo = Typography(
     ),
     titleLarge = TextStyle(
         fontFamily = fonts,
-        lineHeight = 28.sp,
-        fontSize = 22.sp
+        lineHeight = 41.sp,
+        fontSize = 34.sp,
+        fontWeight = FontWeight(weight = 800),
+        letterSpacing = TextUnit(
+            value = -1f,
+            type = TextUnitType.Sp
+        )
     ),
     titleMedium = TextStyle(
         fontFamily = fonts,
@@ -59,8 +71,13 @@ val NimbleTypo = Typography(
     ),
     titleSmall = TextStyle(
         fontFamily = fonts,
-        lineHeight = 20.sp,
-        fontSize = 14.sp
+        lineHeight = 18.sp,
+        fontSize = 13.sp,
+        fontWeight = FontWeight(weight = 800),
+        letterSpacing = TextUnit(
+            value = -0.08f,
+            type = TextUnitType.Sp
+        )
     ),
     bodyLarge = TextStyle(
         fontFamily = fonts,
@@ -69,13 +86,23 @@ val NimbleTypo = Typography(
     ),
     bodyMedium = TextStyle(
         fontFamily = fonts,
-        lineHeight = 20.sp,
-        fontSize = 14.sp
+        lineHeight = 22.sp,
+        fontSize = 17.sp,
+        fontWeight = FontWeight(weight = 400),
+        letterSpacing = TextUnit(
+            value = -0.41f,
+            type = TextUnitType.Sp
+        )
     ),
     bodySmall = TextStyle(
         fontFamily = fonts,
-        lineHeight = 16.sp,
-        fontSize = 12.sp
+        lineHeight = 20.sp,
+        fontSize = 15.sp,
+        fontWeight = FontWeight(weight = 400),
+        letterSpacing = TextUnit(
+            value = -0.24f,
+            type = TextUnitType.Sp
+        )
     ),
     labelLarge = TextStyle(
         fontFamily = fonts,

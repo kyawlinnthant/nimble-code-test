@@ -1,20 +1,20 @@
 package com.kyawlinnthant.presentation.surveys.view
 
-import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.unit.Dp
 import com.kyawlinnthant.theme.dimen
 import com.kyawlinnthant.util.AppConstant
 
@@ -26,13 +26,7 @@ fun PagerIndicator(
 ) {
     Row(
         horizontalArrangement = Arrangement.Start,
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(
-                start = MaterialTheme.dimen.base2x,
-                bottom = MaterialTheme.dimen.base2x,
-                end = MaterialTheme.dimen.base2x
-            ),
+        modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
         repeat(size) {
@@ -46,26 +40,25 @@ fun PagerIndicator(
 @Composable
 fun IndicateIcon(
     isSelected: Boolean,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    size: Dp = MaterialTheme.dimen.indicator
 ) {
-    val width = animateDpAsState(
-        targetValue = if (isSelected) MaterialTheme.dimen.base3x else MaterialTheme.dimen.base,
-        label = ""
+    val color = animateColorAsState(
+        targetValue = if (isSelected) {
+            MaterialTheme.colorScheme.onSurface
+        } else {
+            MaterialTheme.colorScheme.onSurface.copy(
+                AppConstant.INDICATOR_ALPHA
+            )
+        },
+        label = "animate color"
     )
 
     Box(
         modifier = modifier
-            .padding(MaterialTheme.dimen.base)
-            .height(MaterialTheme.dimen.base)
-            .width(width.value)
+            .padding(MaterialTheme.dimen.small)
+            .size(size)
             .clip(CircleShape)
-            .background(
-                if (isSelected) {
-                    MaterialTheme.colorScheme.primary
-                } else {
-                    MaterialTheme.colorScheme.onSurface.copy(AppConstant.DEFAULT_ALPHA)
-                }
-
-            )
+            .background(color = color.value)
     )
 }
