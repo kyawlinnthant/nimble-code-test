@@ -23,7 +23,9 @@ class HomeDbRepositoryTest {
             id = "id",
             name = "name",
             description = "description",
-            image = "image"
+            image = "image",
+            createdAt = "created",
+            activeAt = "activeAt"
         )
     )
 
